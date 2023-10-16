@@ -1,0 +1,180 @@
+.couple {
+  &__content {
+  }
+  .images {
+    &__item {
+    }
+  }
+  .main-image {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 100vh;
+    width: 100%;
+    &__box {
+      position: relative;
+      width: 250px;
+      height: 465px;
+      display: flex;
+      justify-content: center;
+    }
+
+    &__couple {
+      position: absolute;
+      min-height: 70%;
+      // width: 100%;
+      bottom: -3%;
+      margin-right: 0rem;
+    }
+
+    &__tooltip-block {
+      position: absolute;
+      min-height: 15%;
+      // left: 10%;
+      // top: 18%;
+      z-index: 1;
+      // transform: translate(-30%, -0%);
+      &__icon {
+        max-width: 100%;
+        position: absolute;
+        z-index: 1;
+      }
+    }
+  }
+  .man-popup {
+    top: -33%;
+    left: -23%;
+    max-width: 20rem;
+    &::after {
+      bottom: -1rem;
+      left: 50%;
+    }
+  }
+  .woman-popup {
+    top: -8%;
+    right: -8%;
+    max-width: 10rem;
+    &::after {
+      width: 2rem;
+      height: 3rem;
+      bottom: -0.7rem;
+      left: -0.3rem;
+      clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+    }
+  }
+
+  .tooltip-block {
+    &__icon {
+    }
+
+    &__image-light {
+      position: absolute;
+      background-color: $color-orange;
+      width: 100%;
+      height: 120%;
+      border-radius: 50%;
+      will-change: filter;
+      filter: blur(20px);
+      opacity: 0;
+      transition: 0.4s;
+      z-index: 0;
+      animation: blinking 2s linear 0s infinite normal forwards;
+    }
+
+    &__tooltip {
+    }
+  }
+  .man-tooltip {
+    position: absolute;
+    min-height: 15%;
+    left: 32%;
+    top: 60%;
+    &__icon {
+      max-width: 100%;
+      position: absolute;
+      z-index: 1;
+    }
+    .coffee-image {
+      top: -60%;
+      left: 6%;
+      position: absolute;
+      display: block;
+      z-index: 1;
+    }
+    .hand-image {
+      position: relative;
+      z-index: 10;
+    }
+    .image-light {
+      top: -40%;
+      left: 15%;
+    }
+  }
+  .woman-tooltip {
+    position: absolute;
+    min-height: 10%;
+    left: 33.5%;
+    top: 42.7%;
+    z-index: 10;
+
+    &__icon {
+      max-width: 100%;
+      position: absolute;
+      z-index: 1;
+    }
+    .coffee-image {
+      top: -120%;
+      left: -40%;
+      position: absolute;
+      display: block;
+      max-width: 150%;
+      z-index: 1;
+    }
+    .hand-image {
+      position: relative;
+      z-index: 10;
+    }
+    .tooltip {
+      left: -10rem;
+      width: 26.3rem;
+      &__icon {
+      }
+
+      &__text {
+      }
+
+      &__close-icon {
+      }
+    }
+    .image-light {
+      top: -100%;
+      left: -12%;
+    }
+  }
+  .popup {
+    &__link {
+    }
+  }
+
+  .tooltip {
+    width: 26.3rem;
+    left: -10rem;
+
+    &__text {
+      font-size: 1.4rem;
+      line-height: 1.4;
+    }
+
+    &__close-icon {
+    }
+  }
+
+  .image-light {
+  }
+  .tooltip-list {
+    &__item {
+    }
+  }
+  .close {
+  }
+}
