@@ -53,7 +53,6 @@ function handleAnimation() {
   // });
 }
 
-
 function destroySlider(slider) {
   slider.destroy();
 }

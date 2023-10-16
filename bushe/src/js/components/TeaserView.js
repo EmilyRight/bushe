@@ -6,14 +6,6 @@ class TeaserView {
     this.logo = null;
   }
 
-  setLogo(element) {
-    this.logo = element;
-  }
-
-  doSmthWithLogo() {
-    console.log('huy');
-  }
-
   render() {
     const videoSrc = require('url:../../video/teaser.h264.mp4');
     const logoSrc = require('../../img/logo-white.svg');

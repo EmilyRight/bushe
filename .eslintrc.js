@@ -12,6 +12,7 @@ module.exports = {
   },
   rules: {
     'linebreak-style': 0,
+    'class-methods-use-this': 0,
     'no-use-before-define': ['error', {
       functions: false,
       classes: true,

@@ -32,9 +32,6 @@ class SliderView {
   }
 
   addEventListeners() {
-    console.log('====================================');
-    console.log('listen');
-    console.log('====================================');
     this.slide3.addEventListeners();
   }
 

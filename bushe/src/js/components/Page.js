@@ -59,6 +59,7 @@ class Page {
     const hiddenList = document.querySelectorAll('.hidden');
 
     loader.addEventListener('animationend', () => {
+      loader.remove();
       hiddenList.forEach((element) => {
         element.classList.remove('hidden');
         this.controls.classList.add('displayed');
