@@ -64,7 +64,10 @@
     // opacity: 0;
   }
   .slide {
-    &.visible {
+    &_hidden {
+      opacity: 0;
+    }
+    &_visible {
       animation: showElement 1s normal 0s 1 linear forwards;
     }
     &__content {
@@ -84,8 +87,10 @@
   }
   .main-image__popup {
     opacity: 0;
-    transition: .4s;
-
+    transition: 0.4s;
+    &.opened {
+      opacity: 1;
+    }
   }
   .text-popup {
     border-radius: 12px;
@@ -154,14 +159,5 @@
   }
   100% {
     opacity: 0;
-  }
-}
-
-@keyframes showElement {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
   }
 }

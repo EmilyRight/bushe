@@ -8,7 +8,7 @@ const options = {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
   },
-  mousewheel: false,
+  mousewheel: true,
   grabCursor: true,
   slidesPerView: 'auto',
   spaceBetween: 36,

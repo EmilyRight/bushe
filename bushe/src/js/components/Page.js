@@ -3,8 +3,17 @@ import SliderView from './SliderView';
 import TeaserView from './TeaserView';
 import Swiper from '../vendor/swiper.min';
 import options from '../constants/swiperOptions';
+import SlideCoupleView from './SlideCoupleView';
+import SlideManView from './SlideManView';
+import SlideStudentView from './SlideStudentView';
 
 class Page {
+  #teaser;
+
+  #slider;
+
+  #slidesArray;
+
   constructor(element) {
     this.viewWidth = document.documentElement.clientWidth;
     this.element = element;
@@ -13,10 +22,7 @@ class Page {
     this.controls = null;
     this.sliderNextButton = null;
     this.activeSlide = null;
-
-    this.teaser = new TeaserView();
-    this.slider = new SliderView();
-    this.loader = new LoaderView();
+    this.activeSlideContent = null;
   }
 
   init() {
@@ -25,7 +31,8 @@ class Page {
   }
 
   render() {
-    this.element.innerHTML = String(this.teaser.render());
+    this.#teaser = new TeaserView();
+    this.element.innerHTML = String(this.#teaser.render());
   }
 
   addEventListeners() {
@@ -34,22 +41,29 @@ class Page {
   }
 
   renderSlider() {
-    this.element.innerHTML = String(this.slider.render());
-    const elementsSlide1 = this.defineElements('couple');
-    const elementsSlide2 = this.defineElements('man');
-    const elementsSlide3 = this.defineElements('girl');
-    this.slider.setElementsForSlide3(elementsSlide3);
+    this.#slidesArray = [
+      new SlideCoupleView(),
+      new SlideManView(),
+      new SlideStudentView(),
+    ];
+    this.#slider = new SliderView(this.#slidesArray);
+    this.element.innerHTML = String(this.#slider.render());
+    this.#slidesArray.forEach((slide) => {
+      const slideElements = this.defineElements(slide.id);
+      slide.setElements(slideElements);
+    });
+
     this.controls = document.querySelector('.swiper-controls');
   }
 
   defineElements(className) {
     const renderedSlide = document.querySelector(`.${className}`);
     const animatedContent = renderedSlide.querySelector('.slide__content');
-    const popup = renderedSlide.querySelector('.text-popup');
+    const popupList = Array.from(renderedSlide.querySelectorAll('.text-popup'));
     const tooltipIconsList = Array.from(renderedSlide.querySelectorAll('.tooltip-icon'));
-    const tooltip = renderedSlide.querySelector('.tooltip');
+    const tooltipList = Array.from(renderedSlide.querySelectorAll('.tooltip'));
     return {
-      animatedContent, popup, tooltipIconsList, tooltip, renderedSlide,
+      animatedContent, popupList, tooltipIconsList, tooltipList, renderedSlide,
     };
   }
 
@@ -67,17 +81,21 @@ class Page {
       });
       if (this.viewWidth < 992) {
         this.createSlider();
-        let currentSlide = document.querySelector('.swiper-slide-active');
-        this.activeSlide = currentSlide.querySelector('.slide__content');
-        this.animateActiveSlide();
+        this.activeSlide = document.querySelector('.swiper-slide-active');
+        this.handleActiveSlide();
         this.swiper.on('slideChangeTransitionEnd', () => {
-          currentSlide = document.querySelector('.swiper-slide-active');
-          this.activeSlide = currentSlide.querySelector('.slide__content');
-          this.slider.addEventListeners();
-          this.animateActiveSlide();
+          this.#slider.removeEventListeners(this.activeSlide.id);
+          this.handleActiveSlide();
         });
       }
     });
+  }
+
+  handleActiveSlide() {
+    this.activeSlide = document.querySelector('.swiper-slide-active');
+    this.#slider.setActiveSlide(this.activeSlide.id);
+    this.activeSlideContent = this.activeSlide.querySelector('.slide__content');
+    this.animateActiveSlide();
   }
 
   createSlider() {
@@ -91,7 +109,9 @@ class Page {
 
   animateActiveSlide() {
     if (this.viewWidth < 992) {
-      this.activeSlide.classList.add('animated');
+      this.activeSlide.classList.remove('slide_hidden');
+      this.activeSlide.classList.add('slide_visible');
+      this.activeSlideContent.classList.add('animated');
     }
   }
 

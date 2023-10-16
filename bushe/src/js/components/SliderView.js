@@ -1,45 +1,34 @@
 import imageSourcesList from '../constants/imageSourcesList';
 import { html } from '../helpers/utils';
 import LoaderView from './LoaderView';
-import SlideCoupleView from './SlideCoupleView';
-import SlideManView from './SlideManView';
-import SlideStudentView from './SlideStudentView';
 
 class SliderView {
-  constructor() {
+  constructor(slides) {
     this.loader = new LoaderView();
-    this.slide1 = new SlideCoupleView();
-    this.slide2 = new SlideManView();
-    this.slide3 = new SlideStudentView();
+    this.slides = slides;
+    this.activeSlide = null;
   }
 
-  setElementsForSlide1({
-    animatedContent, popup, tooltipIconsList, tooltip, renderedSlide,
+  setActiveSlide(id) {
+    [this.activeSlide] = this.slides.filter((slide) => slide.id === id);
+    this.activeSlide.addEventListeners();
+  }
+
+  setElementsForSlides({
+    animatedContent, popupList, tooltipIconsList, tooltipList, renderedSlide,
   }) {
-    this.slide1.setElements(animatedContent, popup, tooltipIconsList, tooltip, renderedSlide);
+    this.slides.forEach((slide) => {
+      slide.setElements(animatedContent, popupList, tooltipIconsList, tooltipList, renderedSlide);
+    });
   }
 
-  setElementsForSlide2({
-    animatedContent, popup, tooltipIconsList, tooltip, renderedSlide,
-  }) {
-    this.slide2.setElements(animatedContent, popup, tooltipIconsList, tooltip, renderedSlide);
-  }
-
-  setElementsForSlide3({
-    animatedContent, popup, tooltipIconsList, tooltip, renderedSlide,
-  }) {
-    this.slide3.setElements(animatedContent, popup, tooltipIconsList, tooltip, renderedSlide);
-  }
-
-  addEventListeners() {
-    this.slide3.addEventListeners();
+  removeEventListeners(id) {
+    const inactiveSlide = this.slides.filter((slide) => slide.id === id);
+    inactiveSlide[0]?.removeEventListeners();
   }
 
   render() {
     const loader = this.loader.render();
-    const slide1 = this.slide1.render();
-    const slide2 = this.slide2.render();
-    const slide3 = this.slide3.render();
     return html`
     <section class="section-slider">
     <div class="slider">
@@ -58,16 +47,11 @@ class SliderView {
         </div>
         <div class="swiper-wrapper__background"> </div>
         <div class="swiper-wrapper hidden">
-
-          <div class="swiper-slide slide couple">
-            ${slide1}
-          </div>
-          <div class="swiper-slide slide man">
-            ${slide2}
-          </div>
-          <div class="swiper-slide slide girl">
-            ${slide3}
-          </div>
+          ${this.slides.map((slide) => html`
+            <div class="swiper-slide slide ${slide.id} slide_hidden" id=${slide.id}>
+              ${slide.render()}
+            </div>
+          `)}
         </div>
         <div class="swiper-controls">
           <div

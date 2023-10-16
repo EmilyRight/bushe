@@ -4,19 +4,22 @@ import { html } from '../helpers/utils';
 
 class SlideStudentView {
   constructor() {
+    this.id = 'girl';
     this.tooltipIconsList = null;
-    this.tooltip = null;
-    this.popup = null;
+    this.tooltipList = null;
+    this.popupList = null;
     this.delay = null;
     this.renderedSlide = null;
     this.animatedContent = null;
     this.popupAnimation = null;
   }
 
-  setElements(animatedContent, popup, tooltipIconsList, tooltip, renderedSlide) {
+  setElements({
+    animatedContent, popupList, tooltipIconsList, tooltipList, renderedSlide,
+  }) {
     this.tooltipIconsList = tooltipIconsList;
-    this.tooltip = tooltip;
-    this.popup = popup;
+    this.tooltipList = tooltipList;
+    this.popupList = popupList;
     this.delay = null;
     this.animatedContent = animatedContent;
     this.renderedSlide = renderedSlide;
@@ -27,20 +30,39 @@ class SlideStudentView {
       this.showPopup();
     });
     this.tooltipIconsList.forEach((icon) => {
-      icon.addEventListener('click', () => {
-        this.tooltip.classList.toggle('opened');
-      });
+      icon.addEventListener('click', this.showTooltip.bind(this, icon));
+    });
+  }
+
+  removeEventListeners() {
+    this.animatedContent.removeEventListener('animationend', this.showPopup.bind(this));
+    this.tooltipIconsList.forEach((icon) => {
+      icon.removeEventListener('click', this.showTooltip.bind(this, icon));
+    });
+  }
+
+  showTooltip(icon) {
+    this.tooltipList.forEach((tooltip) => {
+      if (tooltip.id === icon.dataset.tooltip) {
+        if (!tooltip.classList.contains('opened')) {
+          tooltip.classList.add('opened');
+        } else {
+          tooltip.classList.remove('opened');
+        }
+      }
     });
   }
 
   showPopup() {
-    this.popupAnimation = this.createAnimation(this.popup);
-    if (this.renderedSlide.classList.contains('swiper-slide-active')) {
-      this.popup.classList.add('opened');
-      // this.popupAnimation.ready.then(() => this.popupAnimation.play());
-    } else {
-      this.popup.classList.remove('opened');
-    }
+    this.popupList.forEach((popup) => {
+      this.popupAnimation = this.createAnimation(popup);
+      if (this.renderedSlide.classList.contains('swiper-slide-active')) {
+        popup.classList.add('opened');
+        // this.popupAnimation.ready.then(() => this.popupAnimation.play());
+      } else {
+        popup.classList.remove('opened');
+      }
+    });
   }
 
   createAnimation(element) {
@@ -73,19 +95,19 @@ class SlideStudentView {
                 alt=""
                 class="main-image__girl"
               />
-              <div class="main-image__tooltip-block tooltip-block tooltip-icon"
-                data-event="cup-girl"
-                data-tooltip="girl">
+              <div class="main-image__tooltip-block tooltip-block">
                 <img
                   src=${imageSourcesList.studentCoffee}
                   alt=""
-                  class="js-gtm-event popup__link tooltip-block__icon coffee-image"
+                  class="js-gtm-event popup__link tooltip-block__icon coffee-image tooltip-icon"
+                  data-event="cup-girl"
+                  data-tooltip="girl"
 
                 />
                 <div
                   class="tooltip-block__image-light image-light"
                 ></div>
-                <div class="tooltip-block__tooltip tooltip" id="girl">
+                <div class="tooltip-block__tooltip tooltip ${this.id}" id=${this.id}>
                   <div class="tooltip__text">
                     <ul class="tooltip__list tooltip-list">
                       <li class="tooltip-list__item">

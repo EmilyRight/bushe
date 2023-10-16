@@ -15,10 +15,12 @@
   z-index: 30;
   left: 50%;
   top: 100%;
+  pointer-events: none;
   // transform: translate(-50%, 0%);
   transition: .4s;
   &.opened {
     z-index: 10;
+    pointer-events: all;
     // display: block;
     opacity: 1;
     // -webkit-transform: translateX(-43%);
