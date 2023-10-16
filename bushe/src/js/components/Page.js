@@ -6,6 +6,7 @@ import options from '../constants/swiperOptions';
 import SlideCoupleView from './SlideCoupleView';
 import SlideManView from './SlideManView';
 import SlideStudentView from './SlideStudentView';
+import videoTeaser from '../helpers/videoTeaser';
 
 class Page {
   #teaser;
@@ -33,6 +34,7 @@ class Page {
   render() {
     this.#teaser = new TeaserView();
     this.element.innerHTML = String(this.#teaser.render());
+    videoTeaser();
   }
 
   addEventListeners() {
@@ -87,6 +89,8 @@ class Page {
           this.#slider.removeEventListeners(this.activeSlide.id);
           this.handleActiveSlide();
         });
+      } else {
+        this.handleDesktopScreen();
       }
     });
   }
@@ -104,6 +108,22 @@ class Page {
       this.swiper.init();
     } else {
       this.destroySlider();
+    }
+  }
+
+  handleDesktopScreen() {
+    const slides = document.querySelectorAll('.slide_hidden');
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].classList.remove('slide_hidden');
+      slides[i].classList.add('slide_visible');
+      let activeSlideContent = slides[i].querySelector('.slide__content');
+      activeSlideContent.classList.add('animated');
+      slides[i].addEventListener('animationend', () => {
+        slides[i + 1].classList.remove('slide_hidden');
+        slides[i + 1].classList.add('slide_visible');
+        activeSlideContent = slides[i + 1].querySelector('.slide__content');
+        activeSlideContent.classList.add('animated');
+      });
     }
   }
 

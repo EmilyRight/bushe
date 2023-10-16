@@ -8,7 +8,7 @@ import { addAnimationClass, createSlider, handleAnimation } from './helpers/slid
 /// /////// DocReady //////////
 window.addEventListener('load', () => {
   detectDevice();
-  videoTeaser();
+  // videoTeaser();
 
   const page = document.querySelector('.page');
   const pageView = new Page(page);
