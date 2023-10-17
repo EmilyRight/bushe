@@ -15,8 +15,9 @@ const options = {
   mousewheel: false,
   grabCursor: true,
   slidesPerView: 1,
+  centeredSlides: true,
   // slideVisibleClass: 'visible',
-  spaceBetween: 36,
+  spaceBetween: 0,
   loop: false,
   breakpoints: {
     768: {

@@ -9,23 +9,23 @@ class SliderView {
     this.activeSlide = null;
   }
 
-  setActiveSlide(id) {
-    [this.activeSlide] = this.slides.filter((slide) => slide.id === id);
-    this.activeSlide.addEventListeners();
-  }
+  // setActiveSlide(id) {
+  //   [this.activeSlide] = this.slides.filter((slide) => slide.id === id);
+  //   this.activeSlide.addEventListeners();
+  // }
 
-  setElementsForSlides({
-    animatedContent, popupList, tooltipIconsList, tooltipList, renderedSlide,
-  }) {
-    this.slides.forEach((slide) => {
-      slide.setElements(animatedContent, popupList, tooltipIconsList, tooltipList, renderedSlide);
-    });
-  }
+  // setElementsForSlides({
+  //   animatedContent, popupList, tooltipIconsList, tooltipList, renderedSlide,
+  // }) {
+  //   this.slides.forEach((slide) => {
+  //     slide.setElements(animatedContent, popupList, tooltipIconsList, tooltipList, renderedSlide);
+  //   });
+  // }
 
-  removeEventListeners(id) {
-    const inactiveSlide = this.slides.filter((slide) => slide.id === id);
-    inactiveSlide[0]?.removeEventListeners();
-  }
+  // removeEventListeners(id) {
+  //   const inactiveSlide = this.slides.filter((slide) => slide.id === id);
+  //   inactiveSlide[0]?.removeEventListeners();
+  // }
 
   render() {
     const loader = this.loader.render();
@@ -47,11 +47,8 @@ class SliderView {
         </div>
         <div class="swiper-wrapper__background"> </div>
         <div class="swiper-wrapper hidden">
-          ${this.slides.map((slide) => html`
-            <div class="swiper-slide slide ${slide.id} slide_hidden" id=${slide.id}>
-              ${slide.render()}
-            </div>
-          `)}
+        <div class="swiper-wrapper__background"> </div>
+
         </div>
         <div class="swiper-controls">
           <div
@@ -75,3 +72,8 @@ class SliderView {
 }
 
 export default SliderView;
+// ${this.slides.map((slide) => html`
+//   <div class="swiper-slide slide slide_hidden ${slide.id} " id=${slide.id}>
+//     ${slide.render()}
+//   </div>
+// `)}

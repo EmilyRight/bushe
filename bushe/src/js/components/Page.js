@@ -7,13 +7,14 @@ import SlideCoupleView from './SlideCoupleView';
 import SlideManView from './SlideManView';
 import SlideStudentView from './SlideStudentView';
 import videoTeaser from '../helpers/videoTeaser';
+import ModalView from './ModalView';
 
 class Page {
-  #teaser;
+  teaser;
 
-  #slider;
+  slider;
 
-  #slidesArray;
+  slidesArray;
 
   constructor(element) {
     this.viewWidth = document.documentElement.clientWidth;
@@ -27,51 +28,58 @@ class Page {
   }
 
   init() {
-    this.render();
-    this.addEventListeners();
+    this.showMainScreen();
   }
 
-  render() {
-    this.#teaser = new TeaserView();
-    this.element.innerHTML = String(this.#teaser.render());
-    videoTeaser();
-  }
+  // render() {
+  //   this.teaser = new TeaserView();
+  //   this.element.innerHTML = String(this.teaser.render());
+  //   videoTeaser();
+  // }
 
-  addEventListeners() {
-    this.nextBtn = document.querySelector('.teaser-more');
-    this.nextBtn.addEventListener('click', this.showMainScreen.bind(this));
-  }
+  // addEventListeners() {
+  //   this.nextBtn = document.querySelector('.teaser-more');
+  //   this.nextBtn.addEventListener('click', this.showMainScreen.bind(this));
+  // }
 
   renderSlider() {
-    this.#slidesArray = [
+    this.slidesArray = [
       new SlideCoupleView(),
       new SlideManView(),
       new SlideStudentView(),
+      new ModalView(),
     ];
-    this.#slider = new SliderView(this.#slidesArray);
-    this.element.innerHTML = String(this.#slider.render());
-    this.#slidesArray.forEach((slide) => {
-      const slideElements = this.defineElements(slide.id);
-      slide.setElements(slideElements);
-    });
+    this.slider = new SliderView(this.slidesArray);
+    this.element.innerHTML = String(this.slider.render());
+
+    // this.slidesArray.forEach((slide) => {
+    //   const slideElements = this.defineElements(slide.id);
+    //   slide.setElements(slideElements);
+    // });
 
     this.controls = document.querySelector('.swiper-controls');
   }
 
-  defineElements(className) {
-    const renderedSlide = document.querySelector(`.${className}`);
-    const animatedContent = renderedSlide.querySelector('.slide__content');
-    const popupList = Array.from(renderedSlide.querySelectorAll('.text-popup'));
-    const tooltipIconsList = Array.from(renderedSlide.querySelectorAll('.tooltip-icon'));
-    const tooltipList = Array.from(renderedSlide.querySelectorAll('.tooltip'));
-    return {
-      animatedContent, popupList, tooltipIconsList, tooltipList, renderedSlide,
-    };
-  }
+  // defineElements(className) {
+  //   const renderedSlide = document.querySelector(`.${className}`);
+  //   const animatedContent = renderedSlide.querySelector('.slide__content');
+  //   const popupList = Array.from(renderedSlide.querySelectorAll('.text-popup'));
+  //   const tooltipIconsList = Array.from(renderedSlide.querySelectorAll('.tooltip-icon'));
+  //   const tooltipList = Array.from(renderedSlide.querySelectorAll('.tooltip'));
+  //   return {
+  //     animatedContent, popupList, tooltipIconsList, tooltipList, renderedSlide,
+  //   };
+  // }
 
   showMainScreen() {
     this.renderSlider();
+    const wrapper = document.querySelector('.swiper-wrapper');
+    this.slidesArray.forEach((slide) => {
+      console.log(slide.render());
+      wrapper.append(slide.render());
+    });
     const loader = document.querySelector('.loader');
+    const fixedText = document.querySelector('.fixed-text');
     const hiddenList = document.querySelectorAll('.hidden');
 
     loader.addEventListener('animationend', () => {
@@ -84,10 +92,17 @@ class Page {
       if (this.viewWidth < 992) {
         this.createSlider();
         this.activeSlide = document.querySelector('.swiper-slide-active');
+
         this.handleActiveSlide();
         this.swiper.on('slideChangeTransitionEnd', () => {
-          this.#slider.removeEventListeners(this.activeSlide.id);
+          // this.slider.removeEventListeners(this.activeSlide.id);
           this.handleActiveSlide();
+          console.log(this.activeSlide);
+          if (this.activeSlide.id === 'modal') {
+            fixedText.classList.remove('visible');
+          } else {
+            fixedText.classList.add('visible');
+          }
         });
       } else {
         this.handleDesktopScreen();
@@ -97,7 +112,7 @@ class Page {
 
   handleActiveSlide() {
     this.activeSlide = document.querySelector('.swiper-slide-active');
-    this.#slider.setActiveSlide(this.activeSlide.id);
+    // this.slider.setActiveSlide(this.activeSlide.id);
     this.activeSlideContent = this.activeSlide.querySelector('.slide__content');
     this.animateActiveSlide();
   }
@@ -105,6 +120,7 @@ class Page {
   createSlider() {
     this.swiper = new Swiper('.swiper-container', options);
     if (this.viewWidth < 992) {
+      console.log('swiper');
       this.swiper.init();
     } else {
       this.destroySlider();
@@ -131,7 +147,7 @@ class Page {
     if (this.viewWidth < 992) {
       this.activeSlide.classList.remove('slide_hidden');
       this.activeSlide.classList.add('slide_visible');
-      this.activeSlideContent.classList.add('animated');
+      this.activeSlideContent?.classList.add('animated');
     }
   }
 

@@ -15,6 +15,11 @@ const imageSourcesList = {
   studentCoffee: require('../../img/page/womans-coffee2.svg'),
 
   arrowSrc: require('../../img/icons/Expander.svg'),
+
+  logoSrc: require('../../img/logo.svg'),
+  copyLinkSrc: require('../../img/icons/copy.svg'),
+  vkLinkSrc: require('../../img/icons/vk.svg'),
+  okLinkSrc: require('../../img/icons/ok.svg'),
 };
 
 export default imageSourcesList;

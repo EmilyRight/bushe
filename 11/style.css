@@ -1,0 +1,11 @@
+.coffee {
+  border: 1px solid;
+}
+
+.tooltip {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
