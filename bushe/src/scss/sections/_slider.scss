@@ -7,6 +7,13 @@
       animation: showElement 1s normal 0s 1 linear forwards;
     }
   }
+  .modal-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 100;
+  }
+
   .loader {
     &__image-area {
     }
@@ -17,15 +24,31 @@
   .swiper-container {
     height: 100vh;
     padding: 3.4rem 0rem 0 0;
+    background-color: $background-main;
   }
   .fixed-text {
     text-align: center;
     left: 0;
+    top: 0;
     padding: 0 1.8rem;
     position: fixed;
     z-index: 100;
     opacity: 0;
     width: 100%;
+    &_mobile {
+      display: block;
+      padding-top: 2.4rem;
+    }
+    &_desktop {
+      display: none;
+    }
+    &__modal-icon {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 100;
+      display: none;
+    }
     &.visible {
       animation: showElement 1s normal 0s 1 linear forwards;
     }
@@ -46,9 +69,10 @@
     position: absolute;
     // left: 3.6rem;
     left: 0;
+
     &__background {
       position: absolute;
-      background-color: $background-main;
+
       height: 100%;
       // max-height: 50vh;
       background-image: url("../img/page/bgmain.png");
@@ -124,23 +148,54 @@
       font-style: normal;
       font-weight: 400;
       line-height: 2.8rem; /* 127.273% */
+      top: 0;
+      position: absolute;
+      z-index: 10;
+      opacity: 1;
+      padding: 2.2rem 17rem;
+      &_mobile {
+        display: none;
+      }
+      &_desktop {
+        display: block;
+      }
+      &__modal-icon {
+        position: absolute;
+        width: 10rem;
+        height: 10rem;
+        background-color: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 3rem;
+        right: 17%;
+        z-index: 100;
+        box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.12);
+        cursor: pointer;
+        &.animated {
+          animation: rotate 3s linear 0s infinite forwards;
+        }
+        img {
+          max-width: 100%;
+          display: block;
+        }
+      }
       &__text {
-        max-width: 40%;
+        max-width: 60%;
         br {
           display: none;
         }
       }
     }
     .swiper-wrapper {
-      min-width: 100%;
       justify-content: center;
       left: 0;
       &__background {
         background-size: 100%;
-
-        background-position: bottom;
-        min-width: 100%;
+        background-position: 0 10%;
         left: 0;
+        width: 100%;
       }
     }
     .swiper-slide {
@@ -162,5 +217,27 @@
   }
   100% {
     opacity: 0;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(10deg);
+    // box-shadow: 0px 3px 8px 0px $color-orange;
+  }
+  40% {
+    transform: rotate(0deg);
+  }
+  60% {
+    transform: rotate(10deg);
+  }
+  80% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(0deg);
   }
 }

@@ -179,6 +179,9 @@ class SlideManView {
     this.tooltipIconsList.forEach((icon) => {
       icon.addEventListener('click', () => this.showTooltip(icon));
     });
+    document.addEventListener('isPrevios', () => {
+      this.hidePopup();
+    });
   }
 
   showTooltip(icon) {
@@ -199,9 +202,15 @@ class SlideManView {
       if (this.renderedSlide.classList.contains('swiper-slide-active')) {
         popup.classList.add('opened');
         this.popupAnimation.ready.then(() => this.popupAnimation.play());
-      } else {
+      }
+    });
+  }
+
+  hidePopup() {
+    this.popupList.forEach((popup) => {
+      if (this.popupAnimation) {
+        this.popupAnimation.cancel();
         popup.classList.remove('opened');
-        this.popupAnimation.finish();
       }
     });
   }

@@ -16,6 +16,8 @@ const imageSourcesList = {
 
   arrowSrc: require('../../img/icons/Expander.svg'),
 
+  modalIconSrc: require('../../img/page/modal-icon.svg'),
+
   logoSrc: require('../../img/logo.svg'),
   copyLinkSrc: require('../../img/icons/copy.svg'),
   vkLinkSrc: require('../../img/icons/vk.svg'),

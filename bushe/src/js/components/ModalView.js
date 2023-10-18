@@ -40,21 +40,14 @@ class ModalView {
     });
   }
 
-  openModal() {
-    const modalLink = document.querySelector('.modal__link');
-    const modalBlock = document.querySelector('.modal');
-    const body = document.querySelector('body');
-    modalLink?.addEventListener('click', () => {
-      modalBlock.style.display = 'flex';
-      body.classList.add('noscroll');
-    });
-  }
-
   closeModal() {
-    const modalBlock = document.querySelector('.modal');
     const body = document.querySelector('body');
-    modalBlock.style.display = 'none';
+    const icon = document.querySelector('.modal-icon');
+    console.log(icon);
     body.classList.remove('noscroll');
+    icon.classList.add('animated');
+    this.renderedSlide.classList.add('modal-hidden');
+    this.renderedSlide.classList.add('slide_hidden');
   }
 
   handleClosingModal() {

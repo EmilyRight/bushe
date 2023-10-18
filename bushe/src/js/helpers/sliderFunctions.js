@@ -25,7 +25,7 @@ const options = {
     },
   },
 };
-let swiper;
+let swiper = null;
 
 function createSlider() {
   const slider = document.querySelector('.swiper-wrapper');
@@ -41,13 +41,18 @@ function createSlider() {
 
 function addAnimationClass() {
   const activeSlide = document.querySelector('.swiper-slide-active');
-  activeSlide.classList.add('animated');
+  if (activeSlide) {
+    activeSlide.classList.add('animated');
+  }
 }
 function handleAnimation() {
-  swiper.on('transitionEnd', () => {
-    console.log('slideChange');
-    addAnimationClass();
-  });
+  if (swiper) {
+    swiper.on('transitionEnd', () => {
+      console.log('slideChange');
+      addAnimationClass();
+    });
+  }
+
   // swiper.on('transitionEnd', () => {
   //   console.log('transitionEnd');
   //   addAnimationClass();

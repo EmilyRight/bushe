@@ -8,10 +8,9 @@ import SlideManView from './SlideManView';
 import SlideStudentView from './SlideStudentView';
 import videoTeaser from '../helpers/videoTeaser';
 import ModalView from './ModalView';
+import MOBILE from '../constants/dimensions';
 
 class Page {
-  teaser;
-
   slider;
 
   slidesArray;
@@ -21,6 +20,8 @@ class Page {
     this.element = element;
     this.nextBtn = null;
     this.swiper = null;
+    this.modalIcon = null;
+    this.modal = null;
     this.controls = null;
     this.sliderNextButton = null;
     this.activeSlide = null;
@@ -29,6 +30,7 @@ class Page {
 
   init() {
     this.showMainScreen();
+    this.addEventListeners();
   }
 
   // render() {
@@ -60,6 +62,12 @@ class Page {
     this.controls = document.querySelector('.swiper-controls');
   }
 
+  addEventListeners() {
+    this.modalIcon.addEventListener('click', () => {
+      this.openModal();
+    });
+  }
+
   // defineElements(className) {
   //   const renderedSlide = document.querySelector(`.${className}`);
   //   const animatedContent = renderedSlide.querySelector('.slide__content');
@@ -75,13 +83,14 @@ class Page {
     this.renderSlider();
     const wrapper = document.querySelector('.swiper-wrapper');
     this.slidesArray.forEach((slide) => {
-      console.log(slide.render());
       wrapper.append(slide.render());
     });
     const loader = document.querySelector('.loader');
-    const fixedText = document.querySelector('.fixed-text');
-    const hiddenList = document.querySelectorAll('.hidden');
 
+    const hiddenList = document.querySelectorAll('.hidden');
+    this.modalIcon = document.querySelector('.modal-icon');
+    this.modal = document.querySelector('.modal');
+    console.log(this.modalIcon, this.modal);
     loader.addEventListener('animationend', () => {
       loader.remove();
       hiddenList.forEach((element) => {
@@ -89,38 +98,71 @@ class Page {
         this.controls.classList.add('displayed');
         element.classList.add('visible');
       });
-      if (this.viewWidth < 992) {
-        this.createSlider();
-        this.activeSlide = document.querySelector('.swiper-slide-active');
-
-        this.handleActiveSlide();
-        this.swiper.on('slideChangeTransitionEnd', () => {
-          // this.slider.removeEventListeners(this.activeSlide.id);
-          this.handleActiveSlide();
-          console.log(this.activeSlide);
-          if (this.activeSlide.id === 'modal') {
-            fixedText.classList.remove('visible');
-          } else {
-            fixedText.classList.add('visible');
-          }
-        });
+      if (this.viewWidth < MOBILE) {
+        this.renderForMobile();
       } else {
+        this.modal.classList.add('modal-hidden');
         this.handleDesktopScreen();
       }
     });
   }
 
+  /**
+ * @param {string} type
+ * @param {any} [detail]
+ * @return {boolean}
+ */
+  notify(type, detail = null) {
+    const cancelable = true;
+    const bubbles = true;
+    const event = new CustomEvent(type, { detail, cancelable, bubbles });
+    return document.dispatchEvent(event);
+  }
+
+  renderForMobile() {
+    this.createSlider();
+    this.activeSlide = document.querySelector('.swiper-slide-active');
+    const fixedText = document.querySelector('.fixed-text_mobile');
+
+    this.handleActiveSlide();
+
+    this.animateActiveSlide();
+    this.swiper.on('slideNextTransitionEnd', () => {
+      this.notify('isPrevios');
+      // this.hidePopups();
+      this.handleActiveSlide();
+      this.animateActiveSlide();
+      if (this.activeSlide.id === 'modal') {
+        fixedText.style.display = 'none';
+      } else {
+        fixedText.style.display = 'block';
+      }
+    });
+    this.swiper.on('slideChangeTransitionEnd', () => {
+      console.log('hey');
+      this.notify('isPrevios');
+    });
+  }
+
+  hidePopups() {
+    const popupList = this.activeSlide.querySelectorAll('.main-image__popup');
+    console.log(this.activeSlide, popupList);
+    if (popupList) {
+      popupList.forEach((popup) => {
+        popup.classList.remove('opened');
+      });
+    }
+  }
+
   handleActiveSlide() {
     this.activeSlide = document.querySelector('.swiper-slide-active');
-    // this.slider.setActiveSlide(this.activeSlide.id);
+    console.log('1', this.activeSlide);
     this.activeSlideContent = this.activeSlide.querySelector('.slide__content');
-    this.animateActiveSlide();
   }
 
   createSlider() {
     this.swiper = new Swiper('.swiper-container', options);
-    if (this.viewWidth < 992) {
-      console.log('swiper');
+    if (this.viewWidth < MOBILE) {
       this.swiper.init();
     } else {
       this.destroySlider();
@@ -129,26 +171,32 @@ class Page {
 
   handleDesktopScreen() {
     const slides = document.querySelectorAll('.slide_hidden');
-    for (let i = 0; i < slides.length; i++) {
+    for (let i = 0; i < slides.length - 1; i++) {
       slides[i].classList.remove('slide_hidden');
       slides[i].classList.add('slide_visible');
-      let activeSlideContent = slides[i].querySelector('.slide__content');
-      activeSlideContent.classList.add('animated');
-      slides[i].addEventListener('animationend', () => {
-        slides[i + 1].classList.remove('slide_hidden');
-        slides[i + 1].classList.add('slide_visible');
-        activeSlideContent = slides[i + 1].querySelector('.slide__content');
-        activeSlideContent.classList.add('animated');
-      });
+      // let activeSlideContent = slides[i].querySelector('.slide__content');
+      // activeSlideContent.classList.add('animated');
+      // slides[i].addEventListener('animationend', () => {
+      //   slides[i + 1].classList.remove('slide_hidden');
+      //   slides[i + 1].classList.add('slide_visible');
+      //   activeSlideContent = slides[i + 1].querySelector('.slide__content');
+      //   activeSlideContent.classList.add('animated');
+      // });
     }
   }
 
   animateActiveSlide() {
-    if (this.viewWidth < 992) {
-      this.activeSlide.classList.remove('slide_hidden');
-      this.activeSlide.classList.add('slide_visible');
-      this.activeSlideContent?.classList.add('animated');
-    }
+    this.activeSlide.classList.remove('slide_hidden');
+    this.activeSlide.classList.add('slide_visible');
+    this.activeSlideContent?.classList.add('animated');
+  }
+
+  openModal() {
+    const body = document.querySelector('body');
+    body.classList.add('noscroll');
+    this.modalIcon.classList.remove('animated');
+    this.modal.classList.remove('modal-hidden');
+    this.modal.classList.remove('slide_hidden');
   }
 
   destroySlider() {

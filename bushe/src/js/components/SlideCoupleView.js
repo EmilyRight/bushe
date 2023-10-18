@@ -206,7 +206,7 @@ class SlideCoupleView {
 
     this.renderedSlide = this.#htmlComponent.querySelector(`.${this.id}`);
     this.animatedContent = this.#htmlComponent.querySelector('.slide__content');
-    this.popupList = Array.from(this.#htmlComponent.querySelectorAll('.text-popup'));
+    this.popupList = Array.from(this.#htmlComponent.querySelectorAll('.main-image__popup'));
     this.tooltipIconsList = Array.from(this.#htmlComponent.querySelectorAll('.tooltip-icon'));
     this.tooltipList = Array.from(this.#htmlComponent.querySelectorAll('.tooltip'));
     this.animatedContent.addEventListener('animationend', () => {
@@ -214,6 +214,9 @@ class SlideCoupleView {
     });
     this.tooltipIconsList.forEach((icon) => {
       icon.addEventListener('click', () => this.showTooltip(icon));
+    });
+    document.addEventListener('isPrevios', () => {
+      this.hidePopup();
     });
   }
 
@@ -255,10 +258,14 @@ class SlideCoupleView {
       if (this.renderedSlide.classList.contains('swiper-slide-active')) {
         popup.classList.add('opened');
         this.popupAnimation.ready.then(() => this.popupAnimation.play());
-      } else {
-        popup.classList.remove('opened');
-        this.popupAnimation.finish();
       }
+    });
+  }
+
+  hidePopup() {
+    this.popupList.forEach((popup) => {
+      this.popupAnimation.cancel();
+      popup.classList.remove('opened');
     });
   }
 

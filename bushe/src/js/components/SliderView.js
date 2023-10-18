@@ -34,20 +34,37 @@ class SliderView {
     <div class="slider">
       ${loader}
       <div class="swiper-container">
-        <div class="slider__text fixed-text hidden">
+        <div class="swiper-wrapper__background"> </div>
+        <div class="swiper-wrapper hidden">
+        <div class="swiper-wrapper__background"> </div>
+          <div class="slider__text fixed-text fixed-text_desktop hidden">
+            <h3 class="fixed-text__title">
+              1&nbsp;чашка&nbsp;&mdash; 250 минут
+            </h3>
+            <p class="fixed-text__text">
+              Провести время с&nbsp;близкими<br />
+              за&nbsp;чашкой кофе&nbsp;&mdash; бесценно. Меняем минуты
+              Tele2&nbsp;на кофе в&nbsp;буше
+              до&nbsp;3&nbsp;декабря&nbsp;2023&nbsp;г.
+            </p>
+            <div
+              class="fixed-text__modal-icon modal-icon js-gtm-event animated"
+              data-event="glass"
+              >
+                <img src=${imageSourcesList.modalIconSrc} alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="slider__text fixed-text fixed-text_mobile hidden">
           <h3 class="fixed-text__title">
             1&nbsp;чашка&nbsp;&mdash; 250 минут
           </h3>
           <p class="fixed-text__text">
             Провести время с&nbsp;близкими<br />
             за&nbsp;чашкой кофе&nbsp;&mdash; бесценно. Меняем минуты
-            Tele2&nbsp;на кофе в&nbsp;буше до&nbsp;3&nbsp;декабря
-            2023&nbsp;г.
+            Tele2&nbsp;на кофе в&nbsp;буше
+            до&nbsp;3&nbsp;декабря&nbsp;2023&nbsp;г.
           </p>
-        </div>
-        <div class="swiper-wrapper__background"> </div>
-        <div class="swiper-wrapper hidden">
-        <div class="swiper-wrapper__background"> </div>
 
         </div>
         <div class="swiper-controls">
