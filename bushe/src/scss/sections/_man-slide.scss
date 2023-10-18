@@ -23,7 +23,6 @@
       bottom: -47%;
       display: block;
       left: -30%;
-
     }
     .tooltip-block {
       position: absolute;
@@ -81,6 +80,7 @@
     }
   }
   .tooltip-icon {
+    cursor: pointer;
   }
 
   .tooltip {

@@ -1,147 +1,10 @@
-// .swiper-slide {
-// }
-// .slide {
-//   width: 100%;
-//   height: 100vh;
-//   &__content {
-//   }
-
-//   &__images-list {
-//   }
-// }
-// .woman {
-//   .images {
-//     width: 100%;
-
-//     animation: bigger 2s linear forwards;
-//     position: relative;
-//     border: 1px solid red;
-//     &__item {
-//     }
-//   }
-//   .main-image {
-//     width: 50rem;
-//     height: 130vw;
-//     justify-content: center;
-//     display: flex;
-//     bottom: -0.5rem;
-//     left: 0rem;
-//     border: 1px solid rgb(0, 55, 255);
-//     &__image {
-//       // max-height: 100%;
-//       width: 100%;
-
-//       display: flex;
-//       justify-content: center;
-//       position: absolute;
-//       bottom: 0%;
-//       border: 1px solid rgb(0, 217, 255);
-
-//       img {
-//         display: block;
-//         border: 1px solid rgb(0, 229, 255);
-//         // height: 100%;
-//         width: 120%;
-//         max-width: 30rem;
-//         margin-bottom: -8rem;
-//       }
-//     }
-
-//     &__item {
-//     }
-//   }
-//   .mans-coffee {
-//     z-index: 10;
-//     transform: translate(-60%, 60%);
-//     width: 15%;
-//     height: 15%;
-//     transition: all 0.4s;
-//     position: absolute;
-//     top: 30%;
-//     left: 25%;
-//     border: 1px solid red;
-//     &__image {
-//     }
-
-//     &__image-light {
-//       width: 100%;
-//       height: 100%;
-//       will-change: filter;
-//       -webkit-filter: blur(20px);
-//       filter: blur(20px);
-//       opacity: 0;
-//       z-index: 1;
-//       background-color: #ff641e;
-//       border-radius: 50%;
-//       transition: all 0.4s;
-//       animation: 2s linear 5s infinite forwards blinking;
-//       position: absolute;
-//       top: 0;
-//       left: 1rem;
-//     }
-//   }
-//   .js-gtm-event {
-//   }
-//   .popup {
-//     &__link {
-//     }
-//   }
-//   .tooltip {
-//     &__icon {
-//     }
-//   }
-//   .tooltip-icon {
-//   }
-//   .coffee-image {
-//     height: 100%;
-//   }
-//   .image-light {
-//   }
-// }
-
-// // @keyframes bigger {
-// //   0% {
-// //     transform: scale(0.8) translateY(25%);
-// //   }
-// //   10% {
-// //     transform: scale(0.82) translateY(27%);
-// //   }
-// //   20% {
-// //     transform: scale(0.84) translateY(20%);
-// //   }
-// //   30% {
-// //     transform: scale(0.86) translateY(22%);
-// //   }
-// //   40% {
-// //     transform: scale(0.88) translateY(15%);
-// //   }
-// //   50% {
-// //     transform: scale(0.9) translateY(17%);
-// //   }
-// //   60% {
-// //     transform: scale(0.92) translateY(10%);
-// //   }
-// //   70% {
-// //     transform: scale(0.94) translateY(12%);
-// //   }
-// //   80% {
-// //     transform: scale(0.96) translateY(5%);
-// //   }
-// //   90% {
-// //     transform: scale(0.98) translateY(7%);
-// //   }
-// //   100% {
-// //     transform: scale(1) translateY(2%);
-// //   }
-// // }
-.slide.girl {
+.couple {
   &__content {
   }
-
-  &__images-list {
-    animation: bigger 2s linear forwards;
+  .images {
+    &__item {
+    }
   }
-
   .main-image {
     display: flex;
     justify-content: center;
@@ -150,127 +13,169 @@
     width: 100%;
     &__box {
       position: relative;
+      left: 2rem;
       width: 250px;
       height: 465px;
       display: flex;
       justify-content: center;
     }
-    &__girl {
+
+    &__couple {
       position: absolute;
       min-height: 70%;
       // width: 100%;
-      bottom: -29%;
-      margin-right: -1.6rem;
+      bottom: -3%;
+      margin-right: 0rem;
     }
-    .tooltip-block {
+
+    &__tooltip-block {
       position: absolute;
       min-height: 15%;
-      width: 30%;
-      left: 14%;
+      // left: 10%;
+      // top: 18%;
       z-index: 1;
-      top: 18%;
-      transform: translate(-30%, -0%);
+      // transform: translate(-30%, -0%);
       &__icon {
         max-width: 100%;
         position: absolute;
         z-index: 1;
       }
     }
-
-    &__item {
+  }
+  .man-popup {
+    top: -33%;
+    left: -23%;
+    max-width: 20rem;
+    &::after {
+      bottom: -1rem;
+      left: 50%;
+    }
+  }
+  .woman-popup {
+    top: -8%;
+    right: -8%;
+    max-width: 10rem;
+    &::after {
+      width: 2rem;
+      height: 3rem;
+      bottom: -0.7rem;
+      left: -0.3rem;
+      clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
     }
   }
 
+  .tooltip-block {
+    &__icon {
+    }
+
+    &__image-light {
+      position: absolute;
+      background-color: $color-orange;
+      width: 100%;
+      height: 120%;
+      border-radius: 50%;
+      will-change: filter;
+      filter: blur(20px);
+      opacity: 0;
+      transition: 0.4s;
+      z-index: 0;
+      animation: blinking 2s linear 0s infinite normal forwards;
+    }
+
+    &__tooltip {
+    }
+  }
+  .man-tooltip {
+    position: absolute;
+    min-height: 15%;
+    left: 32%;
+    top: 60%;
+    &__icon {
+      max-width: 100%;
+      position: absolute;
+      z-index: 1;
+    }
+    .coffee-image {
+      top: -60%;
+      left: 6%;
+      position: absolute;
+      display: block;
+      z-index: 1;
+    }
+    .hand-image {
+      position: relative;
+      z-index: 10;
+    }
+    .image-light {
+      top: -40%;
+      left: 15%;
+    }
+  }
+  .woman-tooltip {
+    position: absolute;
+    min-height: 10%;
+    left: 33.5%;
+    top: 42.7%;
+    z-index: 10;
+
+    &__icon {
+      max-width: 100%;
+      position: absolute;
+      z-index: 1;
+    }
+    .coffee-image {
+      top: -120%;
+      left: -40%;
+      position: absolute;
+      display: block;
+      max-width: 150%;
+      z-index: 1;
+    }
+    .hand-image {
+      position: relative;
+      z-index: 10;
+    }
+    .tooltip {
+      left: -10rem;
+      width: 26.3rem;
+      &__icon {
+      }
+
+      &__text {
+      }
+
+      &__close-icon {
+      }
+    }
+    .image-light {
+      top: -100%;
+      left: -12%;
+    }
+  }
   .popup {
     &__link {
     }
   }
+
   .tooltip {
-    width: 26.5rem;
-    z-index: 30;
-    background-color: #ff641e;
-    border-radius: 16px;
-    padding: 1.2rem 1.6rem 1.2rem 2.6rem;
-    font-family: $font1;
-    font-size: 1.2rem;
-    position: absolute;
-    top: auto;
-    bottom: -100%;
-    left: 0%;
-    transform: none;
-    &::before {
-      left: 10%;
+    width: 26.3rem;
+    left: -10rem;
+
+    &__text {
+      font-size: 1.4rem;
+      line-height: 1.4;
     }
 
-    &-list__item {
-      font-size: 1.4rem;
-      font-family: $font1;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 140%;
-    }
-    &__icon {
+    &__close-icon {
     }
   }
 
   .image-light {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background-color: #fe6320;
-    will-change: filter;
-    filter: blur(20px);
-    z-index: 0;
-    border-radius: 50%;
-    left: 0%;
-    top: 0%;
-    animation: blinking 2s linear 5s infinite normal forwards;
   }
-  .text-popup {
-    top: -27%;
-    left: 0;
-    max-width: 22rem;
-    &::after {
-      bottom: -1rem;
-      left: 45%;
+  .tooltip-list {
+    &__item {
     }
   }
-}
-
-@keyframes bigger {
-  0% {
-    transform: scale(0.8) translateY(10%);
-  }
-
-  20% {
-    transform: scale(0.84) translateY(12%);
-  }
-
-  40% {
-    transform: scale(0.88) translateY(5%);
-  }
-
-  60% {
-    transform: scale(0.92) translateY(7%);
-  }
-
-  80% {
-    transform: scale(0.96) translateY(2%);
-  }
-
-  100% {
-    transform: scale(1) translateY(0%);
-  }
-}
-
-@keyframes blinking {
-  0% {
-    opacity: 0.5;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0.5;
+  .close {
   }
 }

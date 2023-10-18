@@ -172,10 +172,11 @@ class Page {
   handleDesktopScreen() {
     const slides = document.querySelectorAll('.slide_hidden');
     for (let i = 0; i < slides.length - 1; i++) {
-      slides[i].classList.remove('slide_hidden');
-      slides[i].classList.add('slide_visible');
-      // let activeSlideContent = slides[i].querySelector('.slide__content');
-      // activeSlideContent.classList.add('animated');
+      slides[0].classList.remove('slide_hidden');
+      slides[0].classList.add('slide_visible');
+      const activeSlideContent = slides[0].querySelector('.slide__content');
+      console.log(activeSlideContent);
+      activeSlideContent.classList.add('animated');
       // slides[i].addEventListener('animationend', () => {
       //   slides[i + 1].classList.remove('slide_hidden');
       //   slides[i + 1].classList.add('slide_visible');

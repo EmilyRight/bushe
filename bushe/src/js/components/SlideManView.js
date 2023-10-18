@@ -1,3 +1,4 @@
+import MOBILE from '../constants/dimensions';
 import imageSourcesList from '../constants/imageSourcesList';
 import { html } from '../helpers/utils';
 
@@ -167,7 +168,7 @@ class SlideManView {
   constructor() {
     this.id = 'man';
     this.#htmlComponent.append(this.createElement());
-
+    this.viewWidth = document.documentElement.clientWidth;
     this.renderedSlide = this.#htmlComponent.querySelector(`.${this.id}`);
     this.animatedContent = this.#htmlComponent.querySelector('.slide__content');
     this.popupList = Array.from(this.#htmlComponent.querySelectorAll('.text-popup'));
@@ -175,6 +176,9 @@ class SlideManView {
     this.tooltipList = Array.from(this.#htmlComponent.querySelectorAll('.tooltip'));
     this.animatedContent.addEventListener('animationend', () => {
       this.showPopup();
+      setTimeout(() => {
+        this.notify('popUpManIsShown');
+      }, 1000);
     });
     this.tooltipIconsList.forEach((icon) => {
       icon.addEventListener('click', () => this.showTooltip(icon));
@@ -182,6 +186,17 @@ class SlideManView {
     document.addEventListener('isPrevios', () => {
       this.hidePopup();
     });
+    document.addEventListener('popUpCoupleiShown', () => {
+      if (this.viewWidth > MOBILE) {
+        this.animateSelf();
+      }
+    });
+  }
+
+  animateSelf() {
+    this.renderedSlide.classList.remove('slide_hidden');
+    this.renderedSlide.classList.add('slide_visible');
+    this.animatedContent?.classList.add('animated');
   }
 
   showTooltip(icon) {
@@ -196,13 +211,26 @@ class SlideManView {
     });
   }
 
+  /**
+ * @param {string} type
+ * @param {any} [detail]
+ * @return {boolean}
+ */
+  notify(type, detail = null) {
+    const cancelable = true;
+    const bubbles = true;
+    const event = new CustomEvent(type, { detail, cancelable, bubbles });
+    console.log('man', type);
+    return document.dispatchEvent(event);
+  }
+
   showPopup() {
     this.popupList.forEach((popup, index) => {
       this.popupAnimation = this.createAnimation(popup, index);
-      if (this.renderedSlide.classList.contains('swiper-slide-active')) {
-        popup.classList.add('opened');
-        this.popupAnimation.ready.then(() => this.popupAnimation.play());
-      }
+      popup.classList.add('opened');
+      this.popupAnimation.ready.then(() => {
+        this.popupAnimation.play();
+      });
     });
   }
 

@@ -1,3 +1,4 @@
+import MOBILE from '../constants/dimensions';
 import imageSourcesList from '../constants/imageSourcesList';
 import { html } from '../helpers/utils';
 
@@ -211,6 +212,9 @@ class SlideCoupleView {
     this.tooltipList = Array.from(this.#htmlComponent.querySelectorAll('.tooltip'));
     this.animatedContent.addEventListener('animationend', () => {
       this.showPopup();
+      setTimeout(() => {
+        this.notify('popUpCoupleiShown');
+      }, 1000);
     });
     this.tooltipIconsList.forEach((icon) => {
       icon.addEventListener('click', () => this.showTooltip(icon));
@@ -255,10 +259,10 @@ class SlideCoupleView {
   showPopup() {
     this.popupList.forEach((popup, index) => {
       this.popupAnimation = this.createAnimation(popup, index);
-      if (this.renderedSlide.classList.contains('swiper-slide-active')) {
-        popup.classList.add('opened');
-        this.popupAnimation.ready.then(() => this.popupAnimation.play());
-      }
+      popup.classList.add('opened');
+      this.popupAnimation.ready.then(() => {
+        this.popupAnimation.play();
+      });
     });
   }
 
@@ -267,6 +271,20 @@ class SlideCoupleView {
       this.popupAnimation.cancel();
       popup.classList.remove('opened');
     });
+  }
+
+  /**
+ * @param {string} type
+ * @param {any} [detail]
+ * @return {boolean}
+ */
+  notify(type, detail = null) {
+    const cancelable = true;
+    const bubbles = true;
+    const event = new CustomEvent(type, { detail, cancelable, bubbles });
+    console.log('couple', type);
+
+    return document.dispatchEvent(event);
   }
 
   render() {

@@ -138,7 +138,7 @@ class ModalView {
                 <li
                   class="links__item share__copy-link copy-icon js-gtm-event"
                   data-event="share_link">
-                    <img src=${imageSourcesList.copyLinkSrc}alt="" />
+                    <img src=${imageSourcesList.copyLinkSrc} alt="" />
                 </li>
                 <li class="links__item">
                   <a

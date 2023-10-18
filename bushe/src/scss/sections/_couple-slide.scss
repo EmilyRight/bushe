@@ -90,6 +90,7 @@
     min-height: 15%;
     left: 32%;
     top: 60%;
+    cursor: pointer;
     &__icon {
       max-width: 100%;
       position: absolute;
@@ -117,7 +118,7 @@
     left: 33.5%;
     top: 42.7%;
     z-index: 10;
-
+    cursor: pointer;
     &__icon {
       max-width: 100%;
       position: absolute;
@@ -138,14 +139,7 @@
     .tooltip {
       left: -10rem;
       width: 26.3rem;
-      &__icon {
-      }
 
-      &__text {
-      }
-
-      &__close-icon {
-      }
     }
     .image-light {
       top: -100%;

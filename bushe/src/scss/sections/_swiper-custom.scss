@@ -13,7 +13,6 @@
   }
 }
 .swiper-container {
-
   // display: none;
 }
 .swiper {
@@ -123,10 +122,18 @@
       opacity: 1;
     }
   }
-  @media (min-width: 600px) {
+  @media (min-width: 992px) {
     &-button-prev,
     &-button-next {
       display: none;
+    }
+    &-slide {
+      .slide__content.animated {
+        animation: stepsCouple 1s linear forwards;
+      }
+      .slide__content {
+        opacity: 1;
+      }
     }
   }
 }

@@ -1,3 +1,4 @@
+import MOBILE from '../constants/dimensions';
 import imageSourcesList from '../constants/imageSourcesList';
 import linksList from '../constants/linksList';
 import { html } from '../helpers/utils';
@@ -148,6 +149,7 @@ class SlideStudentView {
 
   constructor() {
     this.id = 'girl';
+    this.viewWidth = document.documentElement.clientWidth;
     this.#htmlComponent.append(this.createElement());
 
     this.renderedSlide = this.#htmlComponent.querySelector(`.${this.id}`);
@@ -164,6 +166,17 @@ class SlideStudentView {
     document.addEventListener('isPrevios', () => {
       this.hidePopup();
     });
+    document.addEventListener('popUpManIsShown', () => {
+      if (this.viewWidth > MOBILE) {
+        this.animateSelf();
+      }
+    });
+  }
+
+  animateSelf() {
+    this.renderedSlide.classList.remove('slide_hidden');
+    this.renderedSlide.classList.add('slide_visible');
+    this.animatedContent?.classList.add('animated');
   }
 
   showTooltip(icon) {
@@ -181,10 +194,8 @@ class SlideStudentView {
   showPopup() {
     this.popupList.forEach((popup, index) => {
       this.popupAnimation = this.createAnimation(popup, index);
-      if (this.renderedSlide.classList.contains('swiper-slide-active')) {
-        popup.classList.add('opened');
-        this.popupAnimation.ready.then(() => this.popupAnimation.play());
-      }
+      popup.classList.add('opened');
+      this.popupAnimation.ready.then(() => this.popupAnimation.play());
     });
   }
 
