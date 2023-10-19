@@ -33,32 +33,15 @@ class Page {
     this.addEventListeners();
   }
 
-  // render() {
-  //   this.teaser = new TeaserView();
-  //   this.element.innerHTML = String(this.teaser.render());
-  //   videoTeaser();
-  // }
-
-  // addEventListeners() {
-  //   this.nextBtn = document.querySelector('.teaser-more');
-  //   this.nextBtn.addEventListener('click', this.showMainScreen.bind(this));
-  // }
-
   renderSlider() {
     this.slidesArray = [
-      new SlideCoupleView(),
-      new SlideManView(),
-      new SlideStudentView(),
-      new ModalView(),
+      new SlideCoupleView(this.viewWidth),
+      new SlideManView(this.viewWidth),
+      new SlideStudentView(this.viewWidth),
+      new ModalView(this.viewWidth),
     ];
     this.slider = new SliderView(this.slidesArray);
     this.element.innerHTML = String(this.slider.render());
-
-    // this.slidesArray.forEach((slide) => {
-    //   const slideElements = this.defineElements(slide.id);
-    //   slide.setElements(slideElements);
-    // });
-
     this.controls = document.querySelector('.swiper-controls');
   }
 
@@ -66,18 +49,10 @@ class Page {
     this.modalIcon.addEventListener('click', () => {
       this.openModal();
     });
+    window.addEventListener('resize', () => {
+      this.showMainScreen();
+    });
   }
-
-  // defineElements(className) {
-  //   const renderedSlide = document.querySelector(`.${className}`);
-  //   const animatedContent = renderedSlide.querySelector('.slide__content');
-  //   const popupList = Array.from(renderedSlide.querySelectorAll('.text-popup'));
-  //   const tooltipIconsList = Array.from(renderedSlide.querySelectorAll('.tooltip-icon'));
-  //   const tooltipList = Array.from(renderedSlide.querySelectorAll('.tooltip'));
-  //   return {
-  //     animatedContent, popupList, tooltipIconsList, tooltipList, renderedSlide,
-  //   };
-  // }
 
   showMainScreen() {
     this.renderSlider();
@@ -90,7 +65,6 @@ class Page {
     const hiddenList = document.querySelectorAll('.hidden');
     this.modalIcon = document.querySelector('.modal-icon');
     this.modal = document.querySelector('.modal');
-    console.log(this.modalIcon, this.modal);
     loader.addEventListener('animationend', () => {
       loader.remove();
       hiddenList.forEach((element) => {
@@ -129,7 +103,6 @@ class Page {
     this.animateActiveSlide();
     this.swiper.on('slideNextTransitionEnd', () => {
       this.notify('isPrevios');
-      // this.hidePopups();
       this.handleActiveSlide();
       this.animateActiveSlide();
       if (this.activeSlide.id === 'modal') {
@@ -139,14 +112,12 @@ class Page {
       }
     });
     this.swiper.on('slideChangeTransitionEnd', () => {
-      console.log('hey');
       this.notify('isPrevios');
     });
   }
 
   hidePopups() {
     const popupList = this.activeSlide.querySelectorAll('.main-image__popup');
-    console.log(this.activeSlide, popupList);
     if (popupList) {
       popupList.forEach((popup) => {
         popup.classList.remove('opened');
@@ -156,7 +127,6 @@ class Page {
 
   handleActiveSlide() {
     this.activeSlide = document.querySelector('.swiper-slide-active');
-    console.log('1', this.activeSlide);
     this.activeSlideContent = this.activeSlide.querySelector('.slide__content');
   }
 
@@ -175,14 +145,7 @@ class Page {
       slides[0].classList.remove('slide_hidden');
       slides[0].classList.add('slide_visible');
       const activeSlideContent = slides[0].querySelector('.slide__content');
-      console.log(activeSlideContent);
       activeSlideContent.classList.add('animated');
-      // slides[i].addEventListener('animationend', () => {
-      //   slides[i + 1].classList.remove('slide_hidden');
-      //   slides[i + 1].classList.add('slide_visible');
-      //   activeSlideContent = slides[i + 1].querySelector('.slide__content');
-      //   activeSlideContent.classList.add('animated');
-      // });
     }
   }
 
@@ -193,8 +156,6 @@ class Page {
   }
 
   openModal() {
-    const body = document.querySelector('body');
-    body.classList.add('noscroll');
     this.modalIcon.classList.remove('animated');
     this.modal.classList.remove('modal-hidden');
     this.modal.classList.remove('slide_hidden');

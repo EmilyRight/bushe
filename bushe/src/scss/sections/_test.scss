@@ -1,31 +1,52 @@
 .couple {
-  &__content {
-  }
-  .images {
-    &__item {
-    }
-  }
-  .main-image {
+  .slide-content {
     display: flex;
     justify-content: center;
     align-items: flex-end;
     height: 100vh;
     width: 100%;
-    &__box {
+    &__wrapper {
       position: relative;
-      left: 2rem;
-      width: 250px;
-      height: 465px;
+      width: 70vh;
+      max-width: 37.3rem;
+      height: 66%;
+      bottom: -2rem;
+      left: 1rem;
+    }
+    &__img-box {
+      position: relative;
+      width: 100%;
+      height: 100%;
       display: flex;
       justify-content: center;
     }
 
     &__couple {
-      position: absolute;
-      min-height: 70%;
+      left: 0;
+      display: block;
+
       // width: 100%;
-      bottom: -3%;
-      margin-right: 0rem;
+      max-height: 100%;
+    }
+
+    .hand-image {
+      bottom: 0;
+      // left: 6.5%;
+      // transform: translate(-50%, 0%);
+      // width: 100%;
+      align-self: flex-end;
+      max-height: 100%;
+      display: block;
+      position: absolute;
+    }
+    .coffee-image {
+      bottom: 0;
+      // transform: translate(-50%, 0%);
+      // width: 100%;
+      align-self: flex-end;
+      max-height: 100%;
+      display: block;
+      position: absolute;
     }
 
     &__tooltip-block {
@@ -42,15 +63,42 @@
       }
     }
   }
+  // .main-image {
+
+  // 		&__box {
+  // 		}
+
+  // 		&__couple {
+  // 		}
+
+  // 		&__popup {
+  // 		}
+
+  // 		&__tooltip-block {
+  // 		}
+  // }
+  .tooltip-block {
+    &__icon {
+    }
+
+    &__image-light {
+    }
+
+    &__tooltip {
+    }
+  }
+
   .man-popup {
-    top: -33%;
-    left: -23%;
+    top: -20%;
+    left: 2rem;
+    width: 50vw;
     max-width: 20rem;
     &::after {
       bottom: -1rem;
       left: 50%;
     }
   }
+
   .woman-popup {
     top: -8%;
     right: -8%;
@@ -63,119 +111,33 @@
       clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
     }
   }
-
-  .tooltip-block {
-    &__icon {
-    }
-
-    &__image-light {
-      position: absolute;
-      background-color: $color-orange;
-      width: 100%;
-      height: 120%;
-      border-radius: 50%;
-      will-change: filter;
-      filter: blur(20px);
-      opacity: 0;
-      transition: 0.4s;
-      z-index: 0;
-      animation: blinking 2s linear 0s infinite normal forwards;
-    }
-
-    &__tooltip {
-    }
-  }
-  .man-tooltip {
-    position: absolute;
-    min-height: 15%;
-    left: 32%;
-    top: 60%;
-    &__icon {
-      max-width: 100%;
-      position: absolute;
-      z-index: 1;
-    }
-    .coffee-image {
-      top: -60%;
-      left: 6%;
-      position: absolute;
-      display: block;
-      z-index: 1;
-    }
-    .hand-image {
-      position: relative;
-      z-index: 10;
-    }
-    .image-light {
-      top: -40%;
-      left: 15%;
-    }
-  }
-  .woman-tooltip {
-    position: absolute;
-    min-height: 10%;
-    left: 33.5%;
-    top: 42.7%;
-    z-index: 10;
-
-    &__icon {
-      max-width: 100%;
-      position: absolute;
-      z-index: 1;
-    }
-    .coffee-image {
-      top: -120%;
-      left: -40%;
-      position: absolute;
-      display: block;
-      max-width: 150%;
-      z-index: 1;
-    }
-    .hand-image {
-      position: relative;
-      z-index: 10;
-    }
-    .tooltip {
-      left: -10rem;
-      width: 26.3rem;
-      &__icon {
-      }
-
-      &__text {
-      }
-
-      &__close-icon {
-      }
-    }
-    .image-light {
-      top: -100%;
-      left: -12%;
-    }
-  }
-  .popup {
+  .text-popup {
     &__link {
     }
   }
-
+  .js-gtm-event {
+  }
+  .link {
+  }
+  .man-tooltip {
+  }
+  .tooltip-icon {
+  }
+  .image-light {
+  }
   .tooltip {
-    width: 26.3rem;
-    left: -10rem;
-
     &__text {
-      font-size: 1.4rem;
-      line-height: 1.4;
     }
 
     &__close-icon {
     }
-  }
-
-  .image-light {
   }
   .tooltip-list {
     &__item {
     }
   }
   .close {
+  }
+  .woman-tooltip {
   }
 }

@@ -147,9 +147,9 @@ import { html } from '../helpers/utils';
 class SlideStudentView {
   #htmlComponent = document.createDocumentFragment();
 
-  constructor() {
+  constructor(viewWidth) {
     this.id = 'girl';
-    this.viewWidth = document.documentElement.clientWidth;
+    this.viewWidth = viewWidth;
     this.#htmlComponent.append(this.createElement());
 
     this.renderedSlide = this.#htmlComponent.querySelector(`.${this.id}`);

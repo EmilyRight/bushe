@@ -1,12 +1,13 @@
+import MOBILE from '../constants/dimensions';
 import imageSourcesList from '../constants/imageSourcesList';
 
 class ModalView {
   #htmlComponent = document.createDocumentFragment();
 
-  constructor() {
+  constructor(viewWidth) {
     this.id = 'modal';
+    this.viewWidth = viewWidth;
     this.#htmlComponent.append(this.createElement());
-    console.log(this.createElement());
     this.renderedSlide = this.#htmlComponent.querySelector(`.${this.id}`);
     this.closeIcon = this.#htmlComponent.querySelector('.close-icon');
     this.copyIcon = this.#htmlComponent.querySelector('.copy-icon');
@@ -16,18 +17,18 @@ class ModalView {
     this.closeIcon?.addEventListener('click', () => {
       this.closeModal();
     });
-    this.renderedSlide.addEventListener('click', (event) => {
-      console.log(event.target.closest('.modal-box'));
-      if (!event.target.closest('.modal-box')) {
-        this.closeModal();
-      }
-    });
+    if (this.viewWidth > MOBILE) {
+      this.renderedSlide.addEventListener('click', (event) => {
+        if (!event.target.closest('.modal-box')) {
+          this.closeModal();
+        }
+      });
+    }
     this.copyIcon?.addEventListener('click', () => this.copyLink());
     this.shareWithSocialMedia();
   }
 
   shareWithSocialMedia() {
-    console.log('hey', this.vkIcon, this.okIcon);
     const shareOptions = {
       url: 'window.location.href',
     };
@@ -41,10 +42,7 @@ class ModalView {
   }
 
   closeModal() {
-    const body = document.querySelector('body');
     const icon = document.querySelector('.modal-icon');
-    console.log(icon);
-    body.classList.remove('noscroll');
     icon.classList.add('animated');
     this.renderedSlide.classList.add('modal-hidden');
     this.renderedSlide.classList.add('slide_hidden');

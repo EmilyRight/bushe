@@ -201,10 +201,10 @@ import { html } from '../helpers/utils';
 class SlideCoupleView {
   #htmlComponent = document.createDocumentFragment();
 
-  constructor() {
+  constructor(viewWidth) {
     this.id = 'couple';
     this.#htmlComponent.append(this.createElement());
-
+    this.viewWidth = viewWidth;
     this.renderedSlide = this.#htmlComponent.querySelector(`.${this.id}`);
     this.animatedContent = this.#htmlComponent.querySelector('.slide__content');
     this.popupList = Array.from(this.#htmlComponent.querySelectorAll('.main-image__popup'));
@@ -268,8 +268,10 @@ class SlideCoupleView {
 
   hidePopup() {
     this.popupList.forEach((popup) => {
-      this.popupAnimation.cancel();
-      popup.classList.remove('opened');
+      if (this.popupAnimation) {
+        this.popupAnimation.cancel();
+        popup.classList.remove('opened');
+      }
     });
   }
 
@@ -282,8 +284,6 @@ class SlideCoupleView {
     const cancelable = true;
     const bubbles = true;
     const event = new CustomEvent(type, { detail, cancelable, bubbles });
-    console.log('couple', type);
-
     return document.dispatchEvent(event);
   }
 

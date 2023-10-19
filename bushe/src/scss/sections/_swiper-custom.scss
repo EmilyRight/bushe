@@ -1,8 +1,5 @@
 ///////// ALL sliders
 .slider {
-  border-radius: 1.5rem;
-  margin-bottom: 4.5rem;
-  //.dark-bg &{border-color: #fff;}
   &__text {
   }
   .slide {
@@ -16,14 +13,7 @@
   // display: none;
 }
 .swiper {
-  &-nav {
-    position: absolute;
-    z-index: 200;
-    right: 0;
-    bottom: -0.5rem;
-    height: 3rem;
-    width: 12rem;
-  }
+
   &-controls {
     display: none;
   }
@@ -61,7 +51,7 @@
     height: 5.6rem;
     border-radius: 50%;
     top: auto;
-    bottom: 1.5rem;
+    bottom: 10%;
     display: flex;
     justify-content: center;
     align-items: center;

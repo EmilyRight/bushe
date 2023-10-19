@@ -1,6 +1,6 @@
 const imageSourcesList = {
   loaderSrc: require('../../img/page/coffee.png'),
-  coupleSrc: require('../../img/page/img1.png'),
+  coupleSrc: require('../../img/page/main-slide1.svg'),
   coupleCoffeeManSrc: require('../../img/page/couple-coffee-man.png'),
 
   coupleCoffeeWomanSrc: require('../../img/page/couple-coffee-woman.png'),

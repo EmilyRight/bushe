@@ -165,10 +165,10 @@ import { html } from '../helpers/utils';
 class SlideManView {
   #htmlComponent = document.createDocumentFragment();
 
-  constructor() {
+  constructor(viewWidth) {
     this.id = 'man';
     this.#htmlComponent.append(this.createElement());
-    this.viewWidth = document.documentElement.clientWidth;
+    this.viewWidth = viewWidth;
     this.renderedSlide = this.#htmlComponent.querySelector(`.${this.id}`);
     this.animatedContent = this.#htmlComponent.querySelector('.slide__content');
     this.popupList = Array.from(this.#htmlComponent.querySelectorAll('.text-popup'));
@@ -220,7 +220,6 @@ class SlideManView {
     const cancelable = true;
     const bubbles = true;
     const event = new CustomEvent(type, { detail, cancelable, bubbles });
-    console.log('man', type);
     return document.dispatchEvent(event);
   }
 
