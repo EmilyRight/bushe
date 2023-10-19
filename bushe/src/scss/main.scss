@@ -35,10 +35,13 @@ body {
   &.noscroll {
     overflow: hidden !important;
   }
-
+  :root {
+    --vh: 1vh;
+  }
   .page {
     padding-top: 0;
-    min-height: 100vh;
+    // min-height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     box-sizing: border-box;
     overflow: hidden;
     display: flex;

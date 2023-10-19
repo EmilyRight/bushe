@@ -6,11 +6,12 @@ import Page from './components/Page';
 import { addAnimationClass, createSlider, handleAnimation } from './helpers/sliderFunctions';
 
 /// /////// DocReady //////////
+const page = document.querySelector('.page');
 window.addEventListener('load', () => {
   detectDevice();
   videoTeaser();
 
-  const page = document.querySelector('.page');
+  setPageheight();
   const pageView = new Page(page);
   const buttonMore = document.querySelector('.teaser-more');
   buttonMore.addEventListener('click', () => {
@@ -33,3 +34,13 @@ window.addEventListener('load', () => {
   //   handleAnimation();
   // });
 });
+
+window.addEventListener('resize', () => {
+  setPageheight();
+});
+window.addEventListener('orientationchange', () => {
+  setPageheight();
+});
+function setPageheight() {
+  page.style.setProperty('--vh', `${window.innerHeight / 100}px`);
+}
