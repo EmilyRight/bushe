@@ -7,7 +7,7 @@
     width: 100%;
     &__wrapper {
       position: relative;
-      width: 70vh;
+      width: 70%;
       height: 70%;
       bottom: -12%;
       left: 0rem;
@@ -23,7 +23,9 @@
     .images {
       .image-box {
         height: 100%;
+        width: 100%;
         display: flex;
+        justify-content: center;
         align-items: flex-end;
 
         img {
@@ -82,7 +84,7 @@
       left: 24%;
       transform: rotate(20deg);
       .tooltip {
-        left: 10%;
+        left: -25%;
         top: 80%;
         transform: rotate(-20deg);
       }
@@ -92,8 +94,8 @@
 
   .text-popup {
     font-size: 1.5vh;
-    top: -16vh;
-    left: 8%;
+    top: -13vh;
+    left: -5%;
     width: 70vw;
     max-width: 27.3rem;
     &::after {

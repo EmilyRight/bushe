@@ -7,10 +7,11 @@
     width: 100%;
     &__wrapper {
       position: relative;
-      width: 70vh;
+      width: 70%;
+      max-width: 50rem;
       height: 90%;
       bottom: -27%;
-      left: 0rem;
+      left: 1rem;
     }
     &__img-box {
       position: relative;
@@ -29,9 +30,11 @@
     .images {
       .image-box {
         height: 100%;
+        width: 100%;
         display: flex;
         align-items: flex-end;
         user-select: none;
+        justify-content: center;
         img {
           display: block;
           height: 100%;
@@ -97,19 +100,18 @@
   .tooltip-block {
     &.man-tooltip {
       bottom: 60%;
-      left: 45%;
+      left: 40%;
       transform: translateX(-1%);
       .tooltip {
         left: -9rem;
       }
     }
-
   }
 
   .text-popup {
     font-size: 1.5vh;
-    top: -16vh;
-    left: 8%;
+    top: -15vh;
+    left: -10%;
     width: 70vw;
     max-width: 27.3rem;
     &::after {

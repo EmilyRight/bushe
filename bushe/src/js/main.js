@@ -43,5 +43,8 @@ window.addEventListener('orientationchange', () => {
   setPageheight();
 });
 function setPageheight() {
-  page.style.setProperty('--vh', `${window.innerHeight / 100}px`);
+  const elements = document.querySelectorAll('.js-set-size');
+  elements.forEach((el) => {
+    el.style.setProperty('--vh', `${window.innerHeight / 100}px`);
+  });
 }

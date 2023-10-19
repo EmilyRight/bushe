@@ -241,7 +241,7 @@ class SlideStudentView {
     wrapper.setAttribute('id', `${this.id}`);
     wrapper.innerHTML = `
     <div class="slide__content slide-content">
-      <div class="slide-content__wrapper">
+      <div class="slide-content__wrapper js-set-size">
         <div class="slide-content__img-box images">
           <div class="image-box images__main-img">
             <img

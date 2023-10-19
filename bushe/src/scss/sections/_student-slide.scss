@@ -1,99 +1,168 @@
 .girl {
-  .main-image {
+  .slide-content {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    height: 100vh;
+    height: 100%;
     width: 100%;
-    &__box {
+    &__wrapper {
       position: relative;
-      width: 250px;
-      height: 465px;
+      width: calc(var(--vh, 1vh) * 70);
+      max-width: 34rem;
+      height: 70%;
+      bottom: -12%;
+      left: 0rem;
+    }
+    &__img-box {
+      position: relative;
+      width: 100%;
+      height: 100%;
       display: flex;
       justify-content: center;
     }
-    &__girl {
-      position: absolute;
-      min-height: 70%;
-      // width: 100%;
-      bottom: -27%;
-      margin-right: 0rem;
-    }
-    .tooltip-block {
-      position: absolute;
-      min-height: 15%;
-      width: 30%;
-      left: 10%;
-      top: 18%;
-      z-index: 1;
-      transform: translate(-30%, -0%);
-      &__icon {
-        max-width: 100%;
+
+    .images {
+      .image-box {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+
+        img {
+          display: block;
+          height: 100%;
+          align-self: flex-end;
+        }
+      }
+      .image-box_absolute {
+        bottom: -1px;
+        align-self: flex-end;
+        height: 100%;
         position: absolute;
-        z-index: 1;
+      }
+      &__coffee-img {
+        z-index: 10;
+        &::before {
+          position: absolute;
+          content: "";
+          width: 19%;
+          height: 15%;
+          background-color: $color-orange;
+          border-radius: 50%;
+          will-change: filter;
+          filter: blur(10px);
+          opacity: 0;
+          transition: 0.4s;
+          bottom: 70%;
+          left: 12%;
+          transform: rotate(20deg);
+          z-index: -1;
+          animation: blinking 2s linear 0s infinite normal forwards;
+        }
+      }
+      &__hand-img {
+        z-index: 8;
       }
     }
 
-    &__item {
-    }
-  }
-
-  .popup {
-    &__link {
-    }
-  }
-  .tooltip {
-    width: 26.5rem;
-    z-index: 30;
-    background-color: #ff641e;
-    border-radius: 12px;
-    padding: 1.2rem 1.6rem 1.2rem 2.6rem;
-    font-family: $font1;
-    font-size: 1.2rem;
-    position: absolute;
-    top: auto;
-    bottom: -100%;
-    left: 0%;
-    transform: none;
-    &::before {
-      left: 10%;
-    }
-
-    &-list__item {
-      font-size: 1.4rem;
-      font-family: $font1;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 140%;
-    }
-    &-icon {
+    &__tooltip-block {
+      position: absolute;
+      --size: 13%;
+      aspect-ratio: 0.6;
+      width: calc(var(--size) / var(--aspect-ratio));
+      height: var(--size);
+      z-index: 12;
       cursor: pointer;
     }
   }
 
-  .image-light {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background-color: #fe6320;
-    will-change: filter;
-    filter: blur(20px);
-    z-index: 0;
-    border-radius: 50%;
-    left: 0%;
-    top: 0%;
-    animation: blinking 2s linear 5s infinite normal forwards;
+  .tooltip-block {
+    &.girl-tooltip {
+      bottom: 70%;
+      left: 40%;
+      bottom: 72%;
+      left: 18%;
+      transform: rotate(20deg);
+      .tooltip {
+        left: -25%;
+        top: 80%;
+        transform: rotate(-20deg);
+      }
+    }
   }
+
   .text-popup {
-    top: -25%;
-    left: -2.5rem;
-    max-width: 24rem;
+    font-size: 1.5vh;
+    top: -13vh;
+    left: -5%;
+    width: 70vw;
+    max-width: 27.3rem;
     &::after {
       bottom: -1rem;
-      left: 45%;
+      left: 35%;
     }
-    &.opened {
-      opacity: 1;
+  }
+
+  .tooltip__text {
+    pointer-events: none;
+  }
+  @media (min-width: 768px) {
+    .slide-content {
+      &__wrapper {
+        position: relative;
+        width: 100%;
+        max-width: 21.2rem;
+        height: 40vw;
+        max-height: 37rem;
+        // bottom: -25rem;
+      }
+      &__img-box {
+        max-width: 100%;
+      }
+
+      .images {
+        .image-box {
+          height: auto;
+          width: 100%;
+          img {
+            height: auto;
+            width: 100%;
+          }
+        }
+        .image-box_absolute {
+          bottom: -3px;
+        }
+      }
+
+      &__tooltip-block {
+        --size: 18%;
+      }
+    }
+
+    .tooltip-block {
+      &.girl-tooltip {
+        bottom: 83%;
+        left: 11%;
+        .tooltip {
+          left: -9rem;
+        }
+      }
+    }
+
+    .text-popup {
+      top: -23vh;
+      left: auto;
+      right: -70%;
+      max-width: 22rem;
+      font-size: 1.2rem;
+      &::after {
+        width: 2rem;
+        height: 3rem;
+        bottom: -0.7rem;
+        left: -0.3rem;
+        clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+      }
     }
   }
 }
