@@ -33,6 +33,7 @@
           display: block;
           height: 100%;
           align-self: flex-end;
+          user-select: none;
         }
       }
       .image-box_absolute {
@@ -46,16 +47,18 @@
         &::before {
           position: absolute;
           content: "";
-          width: 19%;
-          height: 15%;
+
           background-color: $color-orange;
           border-radius: 50%;
           will-change: filter;
           filter: blur(10px);
           opacity: 0;
           transition: 0.4s;
+          width: 17%;
+          height: 15%;
+          max-width: 10rem;
           bottom: 70%;
-          left: 12%;
+          left: 17%;
           transform: rotate(20deg);
           z-index: -1;
           animation: blinking 2s linear 0s infinite normal forwards;
@@ -68,10 +71,11 @@
 
     &__tooltip-block {
       position: absolute;
-      --size: 13%;
-      aspect-ratio: 0.6;
-      width: calc(var(--size) / var(--aspect-ratio));
-      height: var(--size);
+      width: 19%;
+      height: 15%;
+      max-width: 10rem;
+      bottom: 70%;
+      left: 13%;
       z-index: 12;
       cursor: pointer;
     }
@@ -79,10 +83,7 @@
 
   .tooltip-block {
     &.girl-tooltip {
-      bottom: 70%;
-      left: 40%;
-      bottom: 72%;
-      left: 18%;
+
       transform: rotate(20deg);
       .tooltip {
         left: -25%;
@@ -154,7 +155,7 @@
       top: -23vh;
       left: auto;
       right: -70%;
-      max-width: 22rem;
+      max-width: 20rem;
       font-size: 1.2rem;
       &::after {
         width: 2rem;
