@@ -13,7 +13,6 @@
   // display: none;
 }
 .swiper {
-
   &-controls {
     display: none;
   }
@@ -51,7 +50,7 @@
     height: 5.6rem;
     border-radius: 50%;
     top: auto;
-    bottom: 10%;
+    bottom: 2%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -112,7 +111,7 @@
       opacity: 1;
     }
   }
-  @media (min-width: 992px) {
+  @media (min-width: 768px) {
     &-button-prev,
     &-button-next {
       display: none;

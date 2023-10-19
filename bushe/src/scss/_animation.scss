@@ -87,7 +87,6 @@
 }
 
 @keyframes stepsCouple {
-
   0% {
     opacity: 1;
     transform: scale(0.8) translateY(8%);
@@ -108,11 +107,43 @@
   0% {
     opacity: 0.5;
   }
-  50% {
+  10% {
     opacity: 1;
+  }
+  20% {
+    opacity: 0.5;
+  }
+  30% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 0.5;
   }
   100% {
     opacity: 0.5;
+  }
+}
+
+
+@keyframes tail {
+  0% {
+    transform: skewY(5deg) rotate(0deg) translate(2px, -1%);
+  }
+
+  5% {
+    transform: skewY(2deg) rotate(10deg) translate(5px, -2%);
+  }
+  10% {
+    transform: skewY(5deg) rotate(0deg) translate(2px, -1%);
+  }
+  15% {
+    transform: skewY(2deg) rotate(10deg) translate(5px, -2%);
+  }
+  20% {
+    transform: skewY(5deg) rotate(0deg) translate(2px, -1%);
+  }
+  100% {
+    transform: skewY(5deg) rotate(0deg) translate(2px, -1%);
   }
 }
 //@import "plugins/animate";

@@ -165,7 +165,7 @@
           </div>
         </div>
       </section>
-      <!-- <section class="section-slider">
+      <section class="section-slider">
         <div class="slider">
           <div class="loader">
             <div class="loader__image-area">
@@ -192,22 +192,32 @@
               <div class="swiper-slide slide couple">
                 <div class="slide__content slide-content">
                   <div class="slide-content__wrapper">
-                    <div class="slide-content__img-box">
-                      <img
-                        src="./img/page/main-slide1.svg"
-                        alt=""
-                        class="slide-content__couple"
-                      />
-                      <img
-                        src="./img/page/couple-coffee.png"
-                        alt=""
-                        class="slide-content__coffee coffee-image"
-                      />
-                      <img
-                        src="./img/page/couple-hand.png"
-                        alt=""
-                        class="slide-content__hands hand-image"
-                      />
+                    <div class="slide-content__img-box images">
+                      <div class="image-box images__main-img">
+                        <img
+                          src="./img/page/main-slide1.svg"
+                          alt=""
+                          class="images__main couple"
+                        />
+                      </div>
+                      <div
+                        class="image-box image-box_absolute images__coffee-img"
+                      >
+                        <img
+                          src="./img/page/couple-coffee.svg"
+                          alt=""
+                          class="images__coffee coffee-image"
+                        />
+                      </div>
+                      <div
+                        class="image-box image-box_absolute images__hand-img"
+                      >
+                        <img
+                          src="./img/page/couple-hands.svg"
+                          alt=""
+                          class="images__hands hand-image"
+                        />
+                      </div>
                     </div>
                     <div class="slide-content__popup man-popup text-popup">
                       Гуляли по&nbsp;Питеру, любовались осенним городом, взяли
@@ -228,8 +238,6 @@
                       data-tooltip="pair-man"
                       data-event="cup-pair"
                     >
-                      <div class="tooltip-block__image-light image-light"></div>
-
                       <div class="tooltip-block__tooltip tooltip" id="pair-man">
                         <div class="tooltip__text">
                           <ul class="tooltip-list">
@@ -251,8 +259,6 @@
                       data-tooltip="pair-woman"
                       data-event="cup-pair"
                     >
-                      <div class="tooltip-block__image-light image-light"></div>
-
                       <div
                         class="tooltip-block__tooltip tooltip"
                         id="pair-woman"
@@ -276,62 +282,70 @@
                 </div>
               </div>
               <div class="swiper-slide slide man">
-                <div class="slide__content">
-                  <div class="slide__images-list images">
-                    <div class="images__item main-image">
-                      <div class="main-image__box">
+                <div class="slide__content slide-content">
+                  <div class="slide-content__wrapper">
+                    <div class="slide-content__img-box images">
+                      <div class="image-box images__main-img">
                         <img
                           src="./img/page/man2.svg"
                           alt=""
-                          class="main-image__man"
+                          class="images__main man"
                         />
-                        <div class="main-image__popup text-popup">
-                          <a
-                            href="https://spb.tele2.ru/minutes-management/bushe"
-                            class="js-gtm-event link text-popup__link"
-                            target="_blank"
-                            data-event="conv_present"
-                            >Подарил кофе</a
-                          >
-                          гостю в очереди. Это просто: надо всего-то показать
-                          QR-код бариста. Сейчас еще маме код на кофе в
-                          мессенджере перешлю. Здорово, когда можно спонтанно
-                          делиться теплом!
+                      </div>
+                      <div
+                        class="image-box image-box_absolute images__phone-img"
+                      >
+                        <img
+                          src="./img/page/mans-phone2.svg"
+                          alt=""
+                          class="images__phone phone-image"
+                        />
+                      </div>
+                      <div class="image-box image-box_absolute images__dog-img">
+                        <img
+                          src="./img/page/dog-tail.svg"
+                          alt=""
+                          class="images__dog dog-image"
+                        />
+                      </div>
+                      <div
+                        class="image-box image-box_absolute images__hand-img"
+                      >
+                        <img
+                          src="./img/page/mans-hand2.svg"
+                          alt=""
+                          class="images__hand hand-image"
+                        />
+                      </div>
+                    </div>
+                    <div class="slide-content__popup text-popup">
+                      <a
+                        href="https://spb.tele2.ru/minutes-management/bushe"
+                        class="js-gtm-event link text-popup__link"
+                        target="_blank"
+                        data-event="conv_present"
+                        >Подарил кофе</a
+                      >
+                      гостю в очереди. Это просто: надо всего-то показать QR-код
+                      бариста. Сейчас еще маме код на кофе в мессенджере
+                      перешлю. Здорово, когда можно спонтанно делиться теплом!
+                    </div>
+                    <div
+                      class="js-gtm-event slide-content__tooltip-block tooltip-block man-tooltip tooltip-icon"
+                      data-tooltip="smartphone"
+                      data-event="smartphone"
+                    >
+                      <div
+                        class="tooltip-block__tooltip tooltip"
+                        id="smartphone"
+                      >
+                        <div class="tooltip__text">
+                          <ul class="tooltip-list">
+                            <li class="tooltip-list__item">Подвешенный кофе</li>
+                          </ul>
                         </div>
-                        <div
-                          class="js-gtm-event main-image__tooltip-block tooltip-block man-tooltip tooltip-icon"
-                          data-tooltip="smartphone"
-                          data-event="smartphone"
-                        >
-                          <img
-                            src="./img/page/mans-hand2.svg"
-                            alt=""
-                            class="tooltip-block__icon hand-image"
-                          />
-                          <img
-                            src="./img/page/mans-phone2.svg"
-                            alt=""
-                            class="tooltip-block__icon phone-image"
-                          />
-                          <div
-                            class="tooltip-block__image-light image-light"
-                          ></div>
-
-                          <div
-                            class="tooltip-block__tooltip tooltip"
-                            id="smartphone"
-                          >
-                            <div class="tooltip__text">
-                              <ul class="tooltip-list">
-                                <li class="tooltip-list__item">
-                                  Подвешенный кофе
-                                </li>
-                              </ul>
-                            </div>
-                            <div class="tooltip__close-icon tooltip-icon">
-                              <span class="close"></span>
-                            </div>
-                          </div>
+                        <div class="tooltip__close-icon tooltip-icon">
+                          <span class="close"></span>
                         </div>
                       </div>
                     </div>
@@ -339,61 +353,72 @@
                 </div>
               </div>
               <div class="swiper-slide slide girl">
-                <div class="slide__content">
-                  <div class="slide__images-list images">
-                    <div class="images__item main-image">
-                      <div class="main-image__box">
+                <div class="slide__content slide-content">
+                  <div class="slide-content__wrapper">
+                    <div class="slide-content__img-box images">
+                      <div class="image-box images__main-img">
                         <img
                           src="./img/page/student.svg"
                           alt=""
                           class="main-image__girl"
                         />
-                        <div class="main-image__tooltip-block tooltip-block">
-                          <img
-                            src="./img/page/womans-coffee2.svg"
-                            alt=""
-                            class="js-gtm-event popup__link tooltip-block__icon tooltip-icon coffee-image"
-                            data-event="cup-girl"
-                            data-tooltip="girl"
-                          />
-                          <div
-                            class="tooltip-block__image-light image-light"
-                          ></div>
-                          <div class="tooltip-block__tooltip tooltip" id="girl">
-                            <div class="tooltip__text">
-                              <ul class="tooltip__list tooltip-list">
-                                <li class="tooltip-list__item">
-                                  Капучино на&nbsp;альтернативном молоке
-                                  220&nbsp;мл
-                                </li>
-                              </ul>
-                            </div>
-                            <div
-                              class="tooltip__close-icon tooltip-icon"
-                              data-tooltip="girl"
-                            >
-                              <span class="close"></span>
-                            </div>
-                          </div>
+                      </div>
+                      <div
+                        class="image-box image-box_absolute images__coffee-img"
+                      >
+                        <img
+                          src="./img/page/students-coffee.svg"
+                          alt=""
+                          class="images__coffee coffee-image"
+                        />
+                      </div>
+                      <div
+                        class="image-box image-box_absolute images__hand-img"
+                      >
+                        <img
+                          src="./img/page/mans-hand2.svg"
+                          alt=""
+                          class="images__hand hand-image"
+                        />
+                      </div>
+                    </div>
+                    <div class="slide-content__popup text-popup">
+                      Ух&nbsp;ты,
+                      <a
+                        href="https://tele2.ru/stock-exchange/internet"
+                        class="js-gtm-event link text-popup__link"
+                        target="_blank"
+                        >до&nbsp;1500 минут</a
+                      >
+                      на&nbsp;кофе! Это&nbsp;же шесть чашек&nbsp;&mdash;
+                      и&nbsp;себе можно взять, и&nbsp;друзей угостить. Есть кофе
+                      на&nbsp;альтернативном молоке? Беру!
+                    </div>
+                    <div
+                      class="js-gtm-event slide-content__tooltip-block tooltip-block man-tooltip tooltip-icon"
+                      data-tooltip="smartphone"
+                      data-event="smartphone"
+                    >
+                      <div class="tooltip-block__tooltip tooltip" id="girl">
+                        <div class="tooltip__text">
+                          <ul class="tooltip__list tooltip-list">
+                            <li class="tooltip-list__item">
+                              Капучино на&nbsp;альтернативном молоке 220&nbsp;мл
+                            </li>
+                          </ul>
                         </div>
-                        <div class="main-image__popup text-popup">
-                          Ух&nbsp;ты,
-                          <a
-                            href="https://tele2.ru/stock-exchange/internet"
-                            class="js-gtm-event link text-popup__link"
-                            target="_blank"
-                            >до&nbsp;1500 минут</a
-                          >
-                          на&nbsp;кофе! Это&nbsp;же шесть чашек&nbsp;&mdash;
-                          и&nbsp;себе можно взять, и&nbsp;друзей угостить. Есть
-                          кофе на&nbsp;альтернативном молоке? Беру!
+                        <div
+                          class="tooltip__close-icon tooltip-icon"
+                          data-tooltip="girl"
+                        >
+                          <span class="close"></span>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="swiper-slide slide modal">
+              <!-- <div class="swiper-slide slide modal">
                 <div class="popup-modal">
                   <div class="modal-box" id="modal-box">
                     <div class="modal__container">
@@ -501,8 +526,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
+              </div> -->
               <div class="slider__text fixed-text fixed-text_mobile hidden">
                 <h3 class="fixed-text__title">
                   1&nbsp;чашка&nbsp;&mdash; 250 минут
@@ -538,7 +562,7 @@
             </div>
           </div>
         </div>
-      </section> -->
+      </section>
     </div>
 
     <script type="module" src="./js/main.js?v1" defer></script>

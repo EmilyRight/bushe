@@ -1,60 +1,126 @@
 .couple {
-  &__content {
-  }
-  .images {
-    &__item {
-    }
-  }
-  .main-image {
+  .slide-content {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    height: 100vh;
+    height: 100%;
     width: 100%;
-    &__box {
+    &__wrapper {
       position: relative;
-      left: 2rem;
-      width: 250px;
-      height: 465px;
+      width: 70vh;
+      height: 65%;
+      bottom: -2rem;
+      left: 1.5rem;
+    }
+    &__img-box {
+      position: relative;
+      width: 100%;
+      height: 100%;
       display: flex;
       justify-content: center;
     }
 
     &__couple {
-      position: absolute;
-      min-height: 70%;
-      // width: 100%;
-      bottom: -3%;
-      margin-right: 0rem;
+      left: 0;
+      display: block;
+      max-height: 100%;
+    }
+
+    .images {
+      .image-box {
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+
+        img {
+          display: block;
+          height: 100%;
+          align-self: flex-end;
+        }
+      }
+      .image-box_absolute {
+        bottom: 0;
+        align-self: flex-end;
+        height: 100%;
+        position: absolute;
+        z-index: 10;
+      }
+      &__coffee-img {
+        &::before,
+        &::after {
+          position: absolute;
+          content: "";
+          width: 17%;
+          height: 16%;
+
+          background-color: $color-orange;
+          border-radius: 50%;
+          will-change: filter;
+          filter: blur(10px);
+          opacity: 0;
+          transition: 0.4s;
+          z-index: -1;
+        }
+
+        &::before {
+          bottom: 48%;
+          left: 37%;
+          animation: blinking 3s linear 0s infinite normal forwards;
+        }
+        &::after {
+          bottom: 28%;
+          left: 43%;
+          animation: blinking 3s linear 1s infinite normal forwards;
+        }
+      }
     }
 
     &__tooltip-block {
       position: absolute;
-      min-height: 15%;
-      // left: 10%;
-      // top: 18%;
-      z-index: 1;
-      // transform: translate(-30%, -0%);
-      &__icon {
-        max-width: 100%;
-        position: absolute;
-        z-index: 1;
+      --size: 15%;
+      aspect-ratio: 0.6;
+      width: calc(var(--size) / var(--aspect-ratio));
+      height: var(--size);
+      z-index: 12;
+      cursor: pointer;
+    }
+  }
+
+  .tooltip-block {
+    &.man-tooltip {
+      bottom: 29%;
+      left: 45%;
+      transform: translateX(-1%);
+      .tooltip {
+        left: -9rem;
+      }
+    }
+
+    &.woman-tooltip {
+      bottom: 50%;
+      left: 41%;
+      .tooltip {
+        left: -9rem;
       }
     }
   }
+
   .man-popup {
-    top: -33%;
-    left: -23%;
-    max-width: 20rem;
+    font-size: 1.5vh;
+    top: -21%;
+    left: 5%;
+    width: 50vw;
+    max-width: 27rem;
     &::after {
       bottom: -1rem;
       left: 50%;
     }
   }
+
   .woman-popup {
-    top: -8%;
-    right: -8%;
-    max-width: 10rem;
+    top: 1%;
+    right: 11%;
+    max-width: 12rem;
     &::after {
       width: 2rem;
       height: 3rem;
@@ -63,113 +129,80 @@
       clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
     }
   }
-
-  .tooltip-block {
-    &__icon {
-    }
-
-    &__image-light {
-      position: absolute;
-      background-color: $color-orange;
-      width: 100%;
-      height: 120%;
-      border-radius: 50%;
-      will-change: filter;
-      filter: blur(20px);
-      opacity: 0;
-      transition: 0.4s;
-      z-index: 0;
-      animation: blinking 2s linear 0s infinite normal forwards;
-    }
-
-    &__tooltip {
-    }
+  .tooltip__text {
+    pointer-events: none;
   }
-  .man-tooltip {
-    position: absolute;
-    min-height: 15%;
-    left: 32%;
-    top: 60%;
-    cursor: pointer;
-    &__icon {
-      max-width: 100%;
-      position: absolute;
-      z-index: 1;
-    }
-    .coffee-image {
-      top: -60%;
-      left: 6%;
-      position: absolute;
-      display: block;
-      z-index: 1;
-    }
-    .hand-image {
-      position: relative;
-      z-index: 10;
-    }
-    .image-light {
-      top: -40%;
-      left: 15%;
-    }
-  }
-  .woman-tooltip {
-    position: absolute;
-    min-height: 10%;
-    left: 33.5%;
-    top: 42.7%;
-    z-index: 10;
-    cursor: pointer;
-    &__icon {
-      max-width: 100%;
-      position: absolute;
-      z-index: 1;
-    }
-    .coffee-image {
-      top: -120%;
-      left: -40%;
-      position: absolute;
-      display: block;
-      max-width: 150%;
-      z-index: 1;
-    }
-    .hand-image {
-      position: relative;
-      z-index: 10;
-    }
-    .tooltip {
-      left: -10rem;
-      width: 26.3rem;
+  @media (min-width: 768px) {
+    .slide-content {
+      &__wrapper {
+        position: relative;
+        width: 100%;
+        max-width: 34.2rem;
+        height: 45vw;
+        max-height: 44rem;
+        bottom: -5rem;
+      }
+      &__img-box {
+        max-width: 100%;
+      }
 
-    }
-    .image-light {
-      top: -100%;
-      left: -12%;
-    }
-  }
-  .popup {
-    &__link {
-    }
-  }
+      .images {
+        .image-box {
+          height: auto;
+          width: 100%;
+          img {
+            height: auto;
+            width: 100%;
+          }
+        }
+      }
 
-  .tooltip {
-    width: 26.3rem;
-    left: -10rem;
-
-    &__text {
-      font-size: 1.4rem;
-      line-height: 1.4;
+      &__tooltip-block {
+        --size: 18%;
+      }
     }
 
-    &__close-icon {
-    }
-  }
+    .tooltip-block {
+      &.man-tooltip {
+        bottom: 29%;
+        left: 42%;
+        transform: translateX(-1%);
+        .tooltip {
+          left: -9rem;
+        }
+      }
 
-  .image-light {
-  }
-  .tooltip-list {
-    &__item {
+      &.woman-tooltip {
+        bottom: 50%;
+        left: 38%;
+        .tooltip {
+          left: -9rem;
+        }
+      }
     }
-  }
-  .close {
+
+    .man-popup {
+      top: -15vh;
+      left: 10%;
+      max-width: 20rem;
+      font-size: 1.2rem;
+      &::after {
+        left: 53%;
+      }
+    }
+
+    .woman-popup {
+      top: 0;
+      right: 0%;
+      max-width: 10rem;
+      font-size: 1.2rem;
+      &::after {
+        width: 2rem;
+        height: 3rem;
+        bottom: -0.7rem;
+        left: -0.3rem;
+        clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+      }
+    }
   }
 }

@@ -275,67 +275,75 @@ class SlideManView {
     wrapper.setAttribute('id', `${this.id}`);
     wrapper.innerHTML = `
 
-    <div class="slide__content">
-        <div class="slide__images-list images">
-            <div class="images__item main-image">
-              <div class="main-image__box">
-                <img
-                  src=${imageSourcesList.manSrc}
-                  alt=""
-                  class="main-image__man"
-                />
-                <div class="main-image__popup text-popup">
-                  <a
-                    href="https://spb.tele2.ru/minutes-management/bushe"
-                    class="js-gtm-event link text-popup__link"
-                    target="_blank"
-                    data-event="conv_present"
-                    >Подарил кофе</a
-                  >
-                  гостю в очереди. Это просто: надо всего-то показать
-                  QR-код бариста. Сейчас еще маме код на кофе в
-                  мессенджере перешлю. Здорово, когда можно спонтанно
-                  делиться теплом!
-                </div>
-                <div
-                  class="js-gtm-event main-image__tooltip-block tooltip-block man-tooltip tooltip-icon"
-                  data-tooltip="smartphone"
-                  data-event="smartphone"
-                >
-                  <img
-                    src=${imageSourcesList.manHand}
-                    alt=""
-                    class="tooltip-block__icon hand-image"
-                  />
-                  <img
-                    src=${imageSourcesList.manPhone}
-                    alt=""
-                    class="tooltip-block__icon phone-image"
-                  />
-                  <div
-                    class="tooltip-block__image-light image-light"
-                  ></div>
-
-                  <div
-                    class="tooltip-block__tooltip tooltip"
-                    id="smartphone"
-                  >
-                    <div class="tooltip__text">
-                      <ul class="tooltip-list">
-                        <li class="tooltip-list__item">
-                          Подвешенный кофе
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="tooltip__close-icon tooltip-icon">
-                      <span class="close"></span>
-                    </div>
-                  </div>
-                </div>
+      <div class="slide__content slide-content">
+        <div class="slide-content__wrapper">
+          <div class="slide-content__img-box images">
+            <div class="image-box images__main-img">
+              <img
+                src=${imageSourcesList.manSrc}
+                alt=""
+                class="images__main man"
+              />
+            </div>
+            <div
+              class="image-box image-box_absolute images__phone-img"
+            >
+              <img
+                src=${imageSourcesList.manPhone}
+                alt=""
+                class="images__phone phone-image"
+              />
+            </div>
+            <div class="image-box image-box_absolute images__dog-img">
+              <img
+                src=${imageSourcesList.manDogTail}
+                alt=""
+                class="images__dog dog-image"
+              />
+            </div>
+            <div
+              class="image-box image-box_absolute images__hand-img"
+            >
+              <img
+                src=${imageSourcesList.manHand}
+                alt=""
+                class="images__hand hand-image"
+              />
+            </div>
+          </div>
+          <div class="slide-content__popup text-popup">
+            <a
+              href="https://spb.tele2.ru/minutes-management/bushe"
+              class="js-gtm-event link text-popup__link"
+              target="_blank"
+              data-event="conv_present"
+              >Подарил кофе</a
+            >
+            гостю в очереди. Это просто: надо всего-то показать QR-код
+            бариста. Сейчас еще маме код на кофе в мессенджере
+            перешлю. Здорово, когда можно спонтанно делиться теплом!
+          </div>
+          <div
+            class="js-gtm-event slide-content__tooltip-block tooltip-block man-tooltip tooltip-icon"
+            data-tooltip="smartphone"
+            data-event="smartphone"
+          >
+            <div
+              class="tooltip-block__tooltip tooltip"
+              id="smartphone"
+            >
+              <div class="tooltip__text">
+                <ul class="tooltip-list">
+                  <li class="tooltip-list__item">Подвешенный кофе</li>
+                </ul>
+              </div>
+              <div class="tooltip__close-icon tooltip-icon">
+                <span class="close"></span>
               </div>
             </div>
           </div>
         </div>
+      </div>
 
     `;
     return wrapper;

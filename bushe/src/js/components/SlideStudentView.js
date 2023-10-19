@@ -240,61 +240,71 @@ class SlideStudentView {
     wrapper.classList.add('slide_hidden');
     wrapper.setAttribute('id', `${this.id}`);
     wrapper.innerHTML = `
-
-    <div class="slide__content">
-        <div class="slide__images-list images">
-          <div class="images__item main-image">
-            <div class="main-image__box">
-              <img
-                src=${imageSourcesList.studentSrc}
-                alt=""
-                class="main-image__girl"
-              />
-              <div class="main-image__tooltip-block tooltip-block">
-                <img
-                  src=${imageSourcesList.studentCoffee}
-                  alt=""
-                  class="js-gtm-event popup__link tooltip-block__icon coffee-image tooltip-icon"
-                  data-event="cup-girl"
-                  data-tooltip="girl"
-
-                />
-                <div
-                  class="tooltip-block__image-light image-light"
-                ></div>
-                <div class="tooltip-block__tooltip tooltip ${this.id}" id=${this.id}>
-                  <div class="tooltip__text">
-                    <ul class="tooltip__list tooltip-list">
-                      <li class="tooltip-list__item">
-                        Капучино на&nbsp;альтернативном молоке
-                        220&nbsp;мл
-                      </li>
-                    </ul>
-                  </div>
-                  <div
-                    class="tooltip__close-icon tooltip-icon"
-                    data-tooltip="girl"
-                  >
-                    <span class="close"></span>
-                  </div>
-                </div>
-              </div>
-              <div class="main-image__popup text-popup">
-                Ух&nbsp;ты,
-                <a
-                  href=${linksList.internet}
-                  class="js-gtm-event link text-popup__link"
-                  target="_blank"
-                  >до&nbsp;1500 минут</a
-                >
-                на&nbsp;кофе! Это&nbsp;же шесть чашек&nbsp;&mdash;
-                и&nbsp;себе можно взять, и&nbsp;друзей угостить. Есть
-                кофе на&nbsp;альтернативном молоке? Беру!
-              </div>
+    <div class="slide__content slide-content">
+      <div class="slide-content__wrapper">
+        <div class="slide-content__img-box images">
+          <div class="image-box images__main-img">
+            <img
+              src=${imageSourcesList.studentSrc}
+              alt=""
+              class="main-image__girl"
+            />
+          </div>
+          <div
+            class="image-box image-box_absolute images__coffee-img"
+          >
+            <img
+              src=${imageSourcesList.studentCoffee}
+              alt=""
+              class="images__coffee coffee-image"
+            />
+          </div>
+          <div
+            class="image-box image-box_absolute images__hand-img"
+          >
+            <img
+              src=${imageSourcesList.studentHand}
+              alt=""
+              class="images__hand hand-image"
+            />
+          </div>
+        </div>
+        <div class="slide-content__popup text-popup">
+          Ух&nbsp;ты,
+          <a
+            href=${linksList.internet}
+            class="js-gtm-event link text-popup__link"
+            target="_blank"
+            >до&nbsp;1500 минут</a
+          >
+          на&nbsp;кофе! Это&nbsp;же шесть чашек&nbsp;&mdash;
+          и&nbsp;себе можно взять, и&nbsp;друзей угостить. Есть кофе
+          на&nbsp;альтернативном молоке? Беру!
+        </div>
+        <div
+          class="js-gtm-event slide-content__tooltip-block tooltip-block girl-tooltip tooltip-icon"
+          data-tooltip="girl"
+          data-event="cup-girl"
+        >
+          <div class="tooltip-block__tooltip tooltip" id="girl">
+            <div class="tooltip__text">
+              <ul class="tooltip__list tooltip-list">
+                <li class="tooltip-list__item">
+                  Капучино на&nbsp;альтернативном молоке 220&nbsp;мл
+                </li>
+              </ul>
+            </div>
+            <div
+              class="tooltip__close-icon tooltip-icon"
+              data-tooltip="girl"
+            >
+              <span class="close"></span>
             </div>
           </div>
         </div>
       </div>
+    </div>
+
     `;
     return wrapper;
   }

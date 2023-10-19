@@ -21,8 +21,9 @@ window.addEventListener('load', () => {
   // const loader = document.querySelector('.loader');
   // const controls = document.querySelector('.swiper-controls');
   // const hiddenList = document.querySelectorAll('.hidden');
-  // console.log(hiddenList);
+  // const teaser = document.querySelector('.teaser');
   // loader.addEventListener('animationend', () => {
+  //   teaser.remove();
   //   hiddenList.forEach((element) => {
   //     element.classList.remove('hidden');
   //     element.classList.add('visible');

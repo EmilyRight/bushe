@@ -1,18 +1,17 @@
 const imageSourcesList = {
   loaderSrc: require('../../img/page/coffee.png'),
   coupleSrc: require('../../img/page/main-slide1.svg'),
-  coupleCoffeeManSrc: require('../../img/page/couple-coffee-man.png'),
-
-  coupleCoffeeWomanSrc: require('../../img/page/couple-coffee-woman.png'),
-  coupleHandManSrc: require('../../img/page/mans-hand1.svg'),
-  coupleHandWomanSrc: require('../../img/page/womans-hand1.svg'),
+  coupleCoffeeSrc: require('../../img/page/couple-coffee.svg'),
+  coupleHands: require('../../img/page/couple-hands.svg'),
 
   manSrc: require('../../img/page/man2.svg'),
   manPhone: require('../../img/page/mans-phone2.svg'),
   manHand: require('../../img/page/mans-hand2.svg'),
+  manDogTail: require('../../img/page/dog-tail.svg'),
 
   studentSrc: require('../../img/page/student.svg'),
-  studentCoffee: require('../../img/page/womans-coffee2.svg'),
+  studentCoffee: require('../../img/page/students-coffee.svg'),
+  studentHand: require('../../img/page/students-hand.svg'),
 
   arrowSrc: require('../../img/icons/Expander.svg'),
 

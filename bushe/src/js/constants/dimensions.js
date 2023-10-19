@@ -1,2 +1,2 @@
-const MOBILE = 992;
+const MOBILE = 768;
 export default MOBILE;

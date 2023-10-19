@@ -1,17 +1,16 @@
-.couple {
+.girl {
   .slide-content {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    height: 100vh;
+    height: 100%;
     width: 100%;
     &__wrapper {
       position: relative;
       width: 70vh;
-      max-width: 37.3rem;
-      height: 66%;
-      bottom: -2rem;
-      left: 1rem;
+      height: 70%;
+      bottom: -12%;
+      left: 0rem;
     }
     &__img-box {
       position: relative;
@@ -21,123 +20,148 @@
       justify-content: center;
     }
 
-    &__couple {
-      left: 0;
-      display: block;
+    .images {
+      .image-box {
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
 
-      // width: 100%;
-      max-height: 100%;
-    }
-
-    .hand-image {
-      bottom: 0;
-      // left: 6.5%;
-      // transform: translate(-50%, 0%);
-      // width: 100%;
-      align-self: flex-end;
-      max-height: 100%;
-      display: block;
-      position: absolute;
-    }
-    .coffee-image {
-      bottom: 0;
-      // transform: translate(-50%, 0%);
-      // width: 100%;
-      align-self: flex-end;
-      max-height: 100%;
-      display: block;
-      position: absolute;
+        img {
+          display: block;
+          height: 100%;
+          align-self: flex-end;
+        }
+      }
+      .image-box_absolute {
+        bottom: -1px;
+        align-self: flex-end;
+        height: 100%;
+        position: absolute;
+      }
+      &__coffee-img {
+        z-index: 10;
+        &::before {
+          position: absolute;
+          content: "";
+          width: 19%;
+          height: 15%;
+          background-color: $color-orange;
+          border-radius: 50%;
+          will-change: filter;
+          filter: blur(10px);
+          opacity: 0;
+          transition: 0.4s;
+          bottom: 70%;
+          left: 12%;
+          transform: rotate(20deg);
+          z-index: -1;
+          animation: blinking 2s linear 0s infinite normal forwards;
+        }
+      }
+      &__hand-img {
+        z-index: 8;
+      }
     }
 
     &__tooltip-block {
       position: absolute;
-      min-height: 15%;
-      // left: 10%;
-      // top: 18%;
-      z-index: 1;
-      // transform: translate(-30%, -0%);
-      &__icon {
-        max-width: 100%;
-        position: absolute;
-        z-index: 1;
+      --size: 13%;
+      aspect-ratio: 0.6;
+      width: calc(var(--size) / var(--aspect-ratio));
+      height: var(--size);
+      z-index: 12;
+      cursor: pointer;
+    }
+  }
+
+  .tooltip-block {
+    &.girl-tooltip {
+      bottom: 70%;
+      left: 45%;
+      bottom: 72%;
+      left: 24%;
+      transform: rotate(20deg);
+      .tooltip {
+        left: 10%;
+        top: 80%;
+        transform: rotate(-20deg);
       }
     }
-  }
-  // .main-image {
 
-  // 		&__box {
-  // 		}
-
-  // 		&__couple {
-  // 		}
-
-  // 		&__popup {
-  // 		}
-
-  // 		&__tooltip-block {
-  // 		}
-  // }
-  .tooltip-block {
-    &__icon {
-    }
-
-    &__image-light {
-    }
-
-    &__tooltip {
-    }
   }
 
-  .man-popup {
-    top: -20%;
-    left: 2rem;
-    width: 50vw;
-    max-width: 20rem;
+  .text-popup {
+    font-size: 1.5vh;
+    top: -16vh;
+    left: 8%;
+    width: 70vw;
+    max-width: 27.3rem;
     &::after {
       bottom: -1rem;
-      left: 50%;
+      left: 35%;
     }
   }
 
-  .woman-popup {
-    top: -8%;
-    right: -8%;
-    max-width: 10rem;
-    &::after {
-      width: 2rem;
-      height: 3rem;
-      bottom: -0.7rem;
-      left: -0.3rem;
-      clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
-    }
+  .tooltip__text {
+    pointer-events: none;
   }
-  .text-popup {
-    &__link {
-    }
-  }
-  .js-gtm-event {
-  }
-  .link {
-  }
-  .man-tooltip {
-  }
-  .tooltip-icon {
-  }
-  .image-light {
-  }
-  .tooltip {
-    &__text {
+  @media (min-width: 768px) {
+    .slide-content {
+      &__wrapper {
+        position: relative;
+        width: 100%;
+        max-width: 21.2rem;
+        height: 40vw;
+        max-height: 37rem;
+        // bottom: -25rem;
+      }
+      &__img-box {
+        max-width: 100%;
+      }
+
+      .images {
+        .image-box {
+          height: auto;
+          width: 100%;
+          img {
+            height: auto;
+            width: 100%;
+          }
+        }
+        .image-box_absolute {
+          bottom: -3px;
+        }
+      }
+
+      &__tooltip-block {
+        --size: 18%;
+      }
     }
 
-    &__close-icon {
+    .tooltip-block {
+      &.girl-tooltip {
+        bottom: 92%;
+        left: 42%;
+        transform: translateX(-1%);
+        .tooltip {
+          left: -9rem;
+        }
+      }
     }
-  }
-  .tooltip-list {
-    &__item {
+
+    .text-popup {
+      top: -23vh;
+      left: auto;
+      right: -70%;
+      max-width: 22rem;
+      font-size: 1.2rem;
+      &::after {
+        width: 2rem;
+        height: 3rem;
+        bottom: -0.7rem;
+        left: -0.3rem;
+        clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+      }
     }
-  }
-  .close {
-  }
-  .woman-tooltip {
   }
 }

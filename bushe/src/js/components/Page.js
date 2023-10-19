@@ -1,12 +1,9 @@
-import LoaderView from './LoaderView';
 import SliderView from './SliderView';
-import TeaserView from './TeaserView';
 import Swiper from '../vendor/swiper.min';
 import options from '../constants/swiperOptions';
 import SlideCoupleView from './SlideCoupleView';
 import SlideManView from './SlideManView';
 import SlideStudentView from './SlideStudentView';
-import videoTeaser from '../helpers/videoTeaser';
 import ModalView from './ModalView';
 import MOBILE from '../constants/dimensions';
 
@@ -69,7 +66,6 @@ class Page {
       loader.remove();
       hiddenList.forEach((element) => {
         element.classList.remove('hidden');
-        this.controls.classList.add('displayed');
         element.classList.add('visible');
       });
       if (this.viewWidth < MOBILE) {
@@ -101,6 +97,9 @@ class Page {
     this.handleActiveSlide();
 
     this.animateActiveSlide();
+    setTimeout(() => {
+      this.controls.classList.add('displayed');
+    }, 3000);
     this.swiper.on('slideNextTransitionEnd', () => {
       this.notify('isPrevios');
       this.handleActiveSlide();
@@ -114,6 +113,9 @@ class Page {
     this.swiper.on('slideChangeTransitionEnd', () => {
       this.notify('isPrevios');
     });
+    this.swiper.on('slideChangeTransitionStart', () => {
+      this.hideControls();
+    });
   }
 
   hidePopups() {
@@ -123,6 +125,13 @@ class Page {
         popup.classList.remove('opened');
       });
     }
+  }
+
+  hideControls() {
+    this.controls.classList.remove('displayed');
+    setTimeout(() => {
+      this.controls.classList.add('displayed');
+    }, 3000);
   }
 
   handleActiveSlide() {
