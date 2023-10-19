@@ -7,7 +7,7 @@
     width: 100%;
     &__wrapper {
       position: relative;
-      width: 70vh;
+      width: 83%;
       height: 65%;
       bottom: -2rem;
       left: 1.5rem;
@@ -88,8 +88,8 @@
 
   .tooltip-block {
     &.man-tooltip {
-      bottom: 29%;
-      left: 45%;
+      bottom: 31%;
+      left: 35%;
       transform: translateX(-1%);
       .tooltip {
         left: -9rem;
@@ -98,7 +98,7 @@
 
     &.woman-tooltip {
       bottom: 50%;
-      left: 41%;
+      left: 35%;
       .tooltip {
         left: -9rem;
       }
@@ -108,7 +108,7 @@
   .man-popup {
     font-size: 1.5vh;
     top: -21%;
-    left: 5%;
+    left: -5%;
     width: 50vw;
     max-width: 27rem;
     &::after {
@@ -119,8 +119,8 @@
 
   .woman-popup {
     top: 1%;
-    right: 11%;
-    max-width: 12rem;
+    right: 3%;
+    max-width: 10rem;
     &::after {
       width: 2rem;
       height: 3rem;
