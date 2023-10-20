@@ -8,11 +8,9 @@ import ModalView from './ModalView';
 import MOBILE from '../constants/dimensions';
 
 class Page {
-  slider;
-
-  slidesArray;
-
   constructor(element, GTM) {
+    this.slider = null;
+    this.slidesArray = [];
     this.viewWidth = document.documentElement.clientWidth;
     this.GTM = GTM;
     this.element = element;

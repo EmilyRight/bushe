@@ -2,9 +2,8 @@ import MOBILE from '../constants/dimensions';
 import imageSourcesList from '../constants/imageSourcesList';
 
 class SlideManView {
-  htmlComponent = document.createDocumentFragment();
-
   constructor(viewWidth) {
+    this.htmlComponent = document.createDocumentFragment();
     this.id = 'man';
     this.htmlComponent.append(this.createElement());
     this.viewWidth = viewWidth;

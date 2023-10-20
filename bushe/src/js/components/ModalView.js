@@ -2,9 +2,8 @@ import MOBILE from '../constants/dimensions';
 import imageSourcesList from '../constants/imageSourcesList';
 
 class ModalView {
-  htmlComponent = document.createDocumentFragment();
-
   constructor(viewWidth) {
+    this.htmlComponent = document.createDocumentFragment();
     this.id = 'modal';
     this.viewWidth = viewWidth;
     this.htmlComponent.append(this.createElement());

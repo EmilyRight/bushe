@@ -1,9 +1,8 @@
 import imageSourcesList from '../constants/imageSourcesList';
 
 class SlideCoupleView {
-  htmlComponent = document.createDocumentFragment();
-
   constructor(viewWidth) {
+    this.htmlComponent = document.createDocumentFragment();
     this.id = 'couple';
     this.htmlComponent.append(this.createElement());
     this.viewWidth = viewWidth;

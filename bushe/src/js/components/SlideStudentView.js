@@ -3,9 +3,8 @@ import imageSourcesList from '../constants/imageSourcesList';
 import linksList from '../constants/linksList';
 
 class SlideStudentView {
-  htmlComponent = document.createDocumentFragment();
-
   constructor(viewWidth) {
+    this.htmlComponent = document.createDocumentFragment();
     this.id = 'girl';
     this.viewWidth = viewWidth;
     this.htmlComponent.append(this.createElement());
