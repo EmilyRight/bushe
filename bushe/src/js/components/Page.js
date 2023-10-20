@@ -12,10 +12,12 @@ class Page {
 
   slidesArray;
 
-  constructor(element) {
+  constructor(element, GTM) {
     this.viewWidth = document.documentElement.clientWidth;
+    this.GTM = GTM;
     this.element = element;
     this.nextBtn = null;
+    this.prevBtn = null;
     this.swiper = null;
     this.modalIcon = null;
     this.modal = null;
@@ -40,6 +42,8 @@ class Page {
     this.slider = new SliderView(this.slidesArray);
     this.element.innerHTML = String(this.slider.render());
     this.controls = document.querySelector('.swiper-controls');
+    this.nextBtn = document.querySelector('.swiper-button-next');
+    this.prevBtn = document.querySelector('.swiper-button-prev');
   }
 
   addEventListeners() {
@@ -63,6 +67,7 @@ class Page {
     this.modalIcon = document.querySelector('.modal-icon');
     this.modal = document.querySelector('.modal');
     loader.addEventListener('animationend', () => {
+      this.GTM.handleScreen(loader.id);
       loader.remove();
       hiddenList.forEach((element) => {
         element.classList.remove('hidden');
@@ -97,6 +102,8 @@ class Page {
     this.handleActiveSlide();
 
     this.animateActiveSlide();
+    this.setDataEventsOnControls();
+    this.GTM.handleScreen(this.activeSlide.id);
     setTimeout(() => {
       this.controls.classList.add('displayed');
     }, 3000);
@@ -104,12 +111,16 @@ class Page {
       this.notify('isPrevios');
       this.handleActiveSlide();
       this.animateActiveSlide();
+      this.setDataEventsOnControls();
+
+      this.GTM.handleScreen(this.activeSlide.id);
       if (this.activeSlide.id === 'modal') {
         fixedText.style.display = 'none';
       } else {
         fixedText.style.display = 'block';
       }
     });
+
     this.swiper.on('slideChangeTransitionEnd', () => {
       this.notify('isPrevios');
     });
@@ -125,6 +136,12 @@ class Page {
         popup.classList.remove('opened');
       });
     }
+  }
+
+
+  setDataEventsOnControls() {
+    this.prevBtn.setAttribute('data-event', `pointer-left-${this.activeSlide.id}`);
+    this.nextBtn.setAttribute('data-event', `pointer-right-${this.activeSlide.id}`);
   }
 
   hideControls() {

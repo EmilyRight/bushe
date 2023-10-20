@@ -130,9 +130,10 @@
     }
     .teaser-body {
       position: absolute;
+      height: auto;
       left: 0;
       right: 0;
-      bottom: 15%;
+      bottom: 10%;
       z-index: 2;
       margin-bottom: -1px; //fix adjusted size display
       background-color: transparent;

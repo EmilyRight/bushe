@@ -18,7 +18,7 @@
   top: 100%;
   pointer-events: none;
   // transform: translate(-50%, 0%);
-  transition: .4s;
+  transition: 0.4s;
   &.opened {
     z-index: 10;
     pointer-events: all;
@@ -80,6 +80,10 @@
 }
 .tooltip-icon {
   user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.tooltip-block {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 .tooltip-list {
   list-style: disc;

@@ -18,6 +18,13 @@ function generateId(len) {
   return Array.from(arr, dec2hex).join('');
 }
 
+function getCurrentYear() {
+  const yearSpan = document.querySelectorAll('.current-year');
+  yearSpan.forEach((span) => {
+    span.innerHTML = new Date().getFullYear().toString();
+  });
+}
+
 class SafeHtml extends String {}
 
 /**
@@ -47,4 +54,6 @@ function html(strings, ...values) {
   return new SafeHtml(result);
 }
 
-export { SafeHtml, html, generateId };
+export {
+  SafeHtml, html, generateId, getCurrentYear,
+};

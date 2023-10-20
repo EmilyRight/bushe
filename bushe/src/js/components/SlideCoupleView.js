@@ -11,6 +11,7 @@ class SlideCoupleView {
     this.animatedContent = this.#htmlComponent.querySelector('.slide__content');
     this.popupList = Array.from(this.#htmlComponent.querySelectorAll('.text-popup'));
     this.tooltipIconsList = Array.from(this.#htmlComponent.querySelectorAll('.tooltip-icon'));
+    this.tooltipCloseIconsList = Array.from(this.#htmlComponent.querySelectorAll('.tooltip__close-icon'));
     this.tooltipList = Array.from(this.#htmlComponent.querySelectorAll('.tooltip'));
     this.animatedContent.addEventListener('animationend', () => {
       this.showPopup();
@@ -21,6 +22,9 @@ class SlideCoupleView {
     this.tooltipIconsList.forEach((icon) => {
       icon.addEventListener('click', () => this.showTooltip(icon));
     });
+    // this.tooltipCloseIconsList.forEach((icon) => {
+    //   icon.addEventListener('click', () => this.hideTooltip(icon));
+    // });
     document.addEventListener('isPrevios', () => {
       this.hidePopup();
     });
@@ -161,7 +165,7 @@ class SlideCoupleView {
                 </li>
               </ul>
             </div>
-            <div class="tooltip__close-icon tooltip-icon">
+            <div class="tooltip__close-icon tooltip-icon" data-tooltip="pair-man">
               <span class="close"></span>
             </div>
           </div>
@@ -185,7 +189,7 @@ class SlideCoupleView {
                 </li>
               </ul>
             </div>
-            <div class="tooltip__close-icon tooltip-icon">
+            <div class="tooltip__close-icon tooltip-icon" data-tooltip="pair-woman">
               <span class="close"></span>
             </div>
           </div>

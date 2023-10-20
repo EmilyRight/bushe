@@ -5,17 +5,8 @@ import { generateId } from './utils';
 
 class GTMEvents {
   constructor() {
-    this.scrollHeight = Math.max(
-      document.body.scrollHeight,
-      document.documentElement.scrollHeight,
-      document.body.offsetHeight,
-      document.documentElement.offsetHeight,
-      document.body.clientHeight,
-      document.documentElement.clientHeight,
-    );
     this.clientHeight = document.documentElement.clientHeight;
     this.fullEventData = {};
-    this.scrollGtm = new Set([10, 30, 50, 70, 90]);
   }
 
   /**
@@ -41,33 +32,28 @@ class GTMEvents {
     }
   }
 
-  handleScroll() {
-    const currentPos = 100 * (window.scrollY / (this.scrollHeight - this.clientHeight));
-    this.scrollEvt(currentPos);
-  }
-
-  /**
-  * @param {number} scrollPos
-  */
-  scrollEvt(scrollPos) {
-    this.scrollGtm.forEach((point) => {
-      if (scrollPos >= point) {
-        this.scrollGtm.delete(point);
-        this.scrollEventPush(point);
-      }
-    });
-  }
-
-  /**
-   * @param {number} scrolledPercent
-   */
-  scrollEventPush(scrolledPercent) {
-    const scrollEventData = {
-      eventAction: 'scroll',
-      eventLabel: `scrollPage-${scrolledPercent}%`,
+  handleScreen(screenId) {
+    this.fullEventData = {
+      eventLabel: `${screenId}`,
+      hitsTime: Date.now(),
+      requestId: generateId(7),
+      firingOptions: 'onesPerEvent',
+      event: 'event',
+      eventStream: 'flight',
+      eventAction: null,
       eventCategory: 'Interactions',
+      eventContent: null,
+      eventValue: null,
+      ecommerce: null,
+      ecommerceAction: false,
+      noninteraction: false,
     };
-    this.gaPush(scrollEventData); // console.log(scrollEventData)
+
+    try {
+      dataLayer.push(this.fullEventData);
+    } catch (e) {
+      console.log(this.fullEventData);
+    }
   }
 
   gaPush(eventData) {
@@ -98,9 +84,6 @@ class GTMEvents {
 
   addEventListeners() {
     document.body.addEventListener('click', this.handleClick.bind(this));
-    document.addEventListener('scroll', () => {
-      this.handleScroll();
-    });
   }
 }
 

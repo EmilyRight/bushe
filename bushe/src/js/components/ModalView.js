@@ -72,6 +72,10 @@ class ModalView {
     return this.#htmlComponent;
   }
 
+  getCurrentYear() {
+    return new Date().getFullYear().toString();
+  }
+
   createElement() {
     const wrapper = document.createElement('div');
     wrapper.classList.add('swiper-slide');
@@ -79,6 +83,7 @@ class ModalView {
     wrapper.classList.add(`${this.id}`);
     wrapper.classList.add('slide_hidden');
     wrapper.setAttribute('id', `${this.id}`);
+    const getCurrentYear = this.getCurrentYear();
     wrapper.innerHTML = `
       <div class="popup-modal">
         <div class="modal-box" id="modal-box">
@@ -94,7 +99,7 @@ class ModalView {
               <h2 class="modal-box__title">
                 Больше теплых минут с&nbsp;Tele2
               </h2>
-              <div class="modal-box__close-icon close-icon">
+              <div class="js-gtm-event modal-box__close-icon close-icon" data-event="close">
                 <span class="close"></span>
               </div>
             </div>
@@ -153,7 +158,7 @@ class ModalView {
                   class="js-gtm-event share__icon_ok"
                   href=""
                   target="_blank"
-                  data-event="share_vk"
+                  data-event="share_ok"
                   >
                     <img src=${imageSourcesList.okLinkSrc} alt="" />
                   </a>
@@ -168,7 +173,7 @@ class ModalView {
             </div>
             <div class="footer__box-content">
               <div class="footer__copyrights copyrights">
-                18+ &copy; Tele2 Россия, 2023.
+                18+ &copy; Tele2 Россия, <span class="current-year">${getCurrentYear}</span>.
               </div>
               <div class="footer__rules rules">
                 <a
