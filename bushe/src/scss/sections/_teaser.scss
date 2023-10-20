@@ -79,7 +79,8 @@
   .bigtext {
     font-family: $fontStencil;
     text-transform: uppercase;
-    font-size: clamp(2.4rem, 5.5vh, 3.4rem);
+    // font-size: clamp(2.4rem, 5.5vh, 3.4rem);
+    font-size: 3.4rem;
     line-height: 4rem;
     margin-bottom: 1.8rem;
   }
@@ -90,7 +91,6 @@
   &__button-block {
     display: flex;
     align-items: center;
-    gap: 1rem;
   }
 
   .teaser-buttons {
@@ -100,6 +100,7 @@
       color: #fff;
       margin-bottom: 0;
       padding: 1.1rem 2.9rem;
+      margin-right: 1.8rem;
     }
 
     &__exchange-button {
@@ -167,10 +168,6 @@
           margin: 1.8rem 0 3.6rem;
         }
       }
-    }
-
-    &__button-block {
-      gap: 1.8rem;
     }
 
     .teaser-buttons {

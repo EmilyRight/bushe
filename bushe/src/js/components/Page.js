@@ -77,6 +77,7 @@ class Page {
         this.renderForMobile();
       } else {
         this.modal.classList.add('modal-hidden');
+        this.GTM.handleScreen(this.slider.id);
         this.handleDesktopScreen();
       }
     });
@@ -137,7 +138,6 @@ class Page {
       });
     }
   }
-
 
   setDataEventsOnControls() {
     this.prevBtn.setAttribute('data-event', `pointer-left-${this.activeSlide.id}`);

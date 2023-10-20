@@ -4,6 +4,7 @@ import LoaderView from './LoaderView';
 
 class SliderView {
   constructor(slides) {
+    this.id = 'main';
     this.loader = new LoaderView();
     this.slides = slides;
     this.activeSlide = null;
