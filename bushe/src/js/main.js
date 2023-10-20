@@ -1,5 +1,5 @@
 import detectDevice from './helpers/detectDevice';
-
+import { WOW } from './vendor/wow.min';
 import { generateId, getCurrentYear } from './helpers/utils';
 import videoTeaser from './helpers/videoTeaser';
 import Page from './components/Page';
@@ -21,6 +21,7 @@ window.addEventListener('load', () => {
     pageView.init();
   });
   GTM.addEventListeners();
+  new WOW().init();
   // getCurrentYear();
   // const loader = document.querySelector('.loader');
   // const controls = document.querySelector('.swiper-controls');

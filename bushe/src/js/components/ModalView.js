@@ -14,6 +14,7 @@ class ModalView {
     this.copyTooltip = this.#htmlComponent.querySelector('.copy-tooltip');
     this.okIcon = this.#htmlComponent.querySelector('.share__icon_ok');
     this.vkIcon = this.#htmlComponent.querySelector('.share__icon_vk');
+    this.glassPic = this.#htmlComponent.querySelector('.footer-glass');
     this.closeIcon?.addEventListener('click', () => {
       this.closeModal();
     });
@@ -24,6 +25,9 @@ class ModalView {
         }
       });
     }
+    document.addEventListener('modal', () => {
+      this.glassPic?.classList.add('animated');
+    });
     this.copyIcon?.addEventListener('click', () => this.copyLink());
     this.shareWithSocialMedia();
   }
@@ -168,8 +172,17 @@ class ModalView {
                 </li>
               </ul>
             </div>
-            <div class="footer__image-box">
-              <img src="./img/page/footer-coffee.svg" alt="" />
+            <div class="footer__image-area">
+              <div class="footer__image footer__coffee">
+                <img src=${imageSourcesList.footerSrc} alt="" />
+               </div>
+              <div class="footer__image footer__image_absolute footer-steam">
+                <img src=${imageSourcesList.footerSteamSrc} alt="" />
+              </div>
+              <div class="footer__image footer__image_absolute footer-glass">
+                <img src=${imageSourcesList.footerGlassSrc} alt="" />
+              </div>
+
             </div>
             <div class="footer__box-content">
               <div class="footer__copyrights copyrights">

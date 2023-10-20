@@ -24,6 +24,10 @@ const imageSourcesList = {
   copyLinkSrc: require('../../img/icons/copy.svg'),
   vkLinkSrc: require('../../img/icons/vk.svg'),
   okLinkSrc: require('../../img/icons/ok.svg'),
+
+  footerSrc: require('../../img/page/footer-coffee.svg'),
+  footerSteamSrc: require('../../img/page/footer-steam.svg'),
+  footerGlassSrc: require('../../img/page/footer-glass.svg'),
 };
 
 export default imageSourcesList;

@@ -117,6 +117,7 @@ class Page {
       this.GTM.handleScreen(this.activeSlide.id);
       if (this.activeSlide.id === 'modal') {
         fixedText.style.display = 'none';
+        this.notify('modal');
       } else {
         fixedText.style.display = 'block';
       }
