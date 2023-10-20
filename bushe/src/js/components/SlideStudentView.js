@@ -143,7 +143,7 @@ class SlideStudentView {
           class="slide-content__tooltip-block tooltip-block girl-tooltip"
         >
           <div
-          class="js-gtm-event slide-content__tooltip-block tooltip-icon"
+          class="js-gtm-event tooltip-block__tooltip-icon tooltip-icon"
           data-tooltip="girl"
           data-event="cup-girl"></div>
           <div class="tooltip-block__tooltip tooltip" id="girl">

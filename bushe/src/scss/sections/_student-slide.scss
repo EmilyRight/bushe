@@ -77,13 +77,16 @@
       bottom: 70%;
       left: 13%;
       z-index: 12;
-      cursor: pointer;
     }
   }
 
   .tooltip-block {
+    &__tooltip-icon {
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
     &.girl-tooltip {
-
       transform: rotate(20deg);
       .tooltip {
         left: -25%;

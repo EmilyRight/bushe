@@ -92,9 +92,7 @@
       aspect-ratio: 0.6;
       width: calc(var(--size) / var(--aspect-ratio));
       height: var(--size);
-
       z-index: 12;
-      cursor: pointer;
     }
   }
 
@@ -102,6 +100,7 @@
     &__tooltip-icon {
       width: 100%;
       height: 100%;
+      cursor: pointer;
     }
     &.man-tooltip {
       bottom: 60%;
@@ -152,7 +151,7 @@
           }
         }
         .image-box_absolute {
-          bottom: -3px;
+          bottom: 0px;
         }
       }
 
