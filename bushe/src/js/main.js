@@ -21,7 +21,7 @@ window.addEventListener('load', () => {
     pageView.init();
   });
   GTM.addEventListeners();
-  getCurrentYear();
+  // getCurrentYear();
   // const loader = document.querySelector('.loader');
   // const controls = document.querySelector('.swiper-controls');
   // const hiddenList = document.querySelectorAll('.hidden');
@@ -33,7 +33,6 @@ window.addEventListener('load', () => {
   //     element.classList.add('visible');
 
   //     controls.classList.add('displayed');
-  //     createSlider();
   //   });
   //   addAnimationClass();
   //   handleAnimation();

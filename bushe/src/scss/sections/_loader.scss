@@ -1,24 +1,74 @@
 .loader {
   position: fixed;
-  // background-image: url("../img/page/loader-bg.png");
-  // background-size: 110%;
-  // background-repeat: no-repeat;
-  // background-position: 0;
   height: 100%;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: rgba(255, 100, 30, 0.5);
-  animation: loader 1s 1 ease forwards;
+  animation: loader 3s 1 ease forwards;
   z-index: 1000;
   &__image-area {
+    width: 20.8rem;
+    height: 20.8rem;
+    background: #ffffff;
+    border-radius: 50%;
+    position: relative;
   }
 
-  &__coffee {
+  &__image {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      display: block;
+      width: 100%;
+    }
+    &_absolute {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+  &__glare {
+    transform-origin: bottom center;
+    animation: glare 1.5s linear infinite normal forwards;
+  }
+
+  &__steam {
+    animation: steam 2s linear infinite normal forwards;
   }
 }
 
+@keyframes steam {
+  0%{
+    transform: scaleY(.5) skewX(0);
+    opacity: 0;
+  }
+  50%{
+    transform: scaleY(1) skewX(-7.5deg);
+    opacity: 1;
+  }
+  100%{
+    transform: scaleY(1.4) skewX(-15deg);
+    opacity: 0;
+  }
+}
+
+@keyframes glare {
+  0%{
+    transform: scaleX(1) scaleY(1);
+  }
+  50%{
+    transform: scaleX(1.2) scaleY(.98);
+  }
+  100%{
+    transform: scaleX(1) scaleY(1);
+  }
+}
 @keyframes loader {
   0% {
     opacity: 1;
