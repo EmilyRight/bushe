@@ -166,8 +166,6 @@ class SlideManView {
           </div>
           <div
             class="slide-content__tooltip-block tooltip-block man-tooltip"
-            data-tooltip="smartphone"
-            data-event="smartphone"
           >
             <div
               class="js-gtm-event tooltip-block__tooltip-icon tooltip-icon"

@@ -157,8 +157,8 @@ class Page {
   }
 
   createSlider() {
-    this.swiper = new Swiper('.swiper-container', options);
     if (this.viewWidth < MOBILE) {
+      this.swiper = new Swiper('.swiper-container', options);
       this.swiper.init();
     } else {
       this.destroySlider();
@@ -167,7 +167,7 @@ class Page {
 
   handleDesktopScreen() {
     const slides = document.querySelectorAll('.slide_hidden');
-    for (let i = 0; i < slides.length - 1; i++) {
+    for (let i = 0; i < slides.length - 1; i += 1) {
       slides[0].classList.remove('slide_hidden');
       slides[0].classList.add('slide_visible');
       const activeSlideContent = slides[0].querySelector('.slide__content');
