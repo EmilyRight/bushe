@@ -3,18 +3,18 @@ import imageSourcesList from '../constants/imageSourcesList';
 import linksList from '../constants/linksList';
 
 class SlideStudentView {
-  #htmlComponent = document.createDocumentFragment();
+  htmlComponent = document.createDocumentFragment();
 
   constructor(viewWidth) {
     this.id = 'girl';
     this.viewWidth = viewWidth;
-    this.#htmlComponent.append(this.createElement());
+    this.htmlComponent.append(this.createElement());
 
-    this.renderedSlide = this.#htmlComponent.querySelector(`.${this.id}`);
-    this.animatedContent = this.#htmlComponent.querySelector('.slide__content');
-    this.popupList = Array.from(this.#htmlComponent.querySelectorAll('.text-popup'));
-    this.tooltipIconsList = Array.from(this.#htmlComponent.querySelectorAll('.tooltip-icon'));
-    this.tooltipList = Array.from(this.#htmlComponent.querySelectorAll('.tooltip'));
+    this.renderedSlide = this.htmlComponent.querySelector(`.${this.id}`);
+    this.animatedContent = this.htmlComponent.querySelector('.slide__content');
+    this.popupList = Array.from(this.htmlComponent.querySelectorAll('.text-popup'));
+    this.tooltipIconsList = Array.from(this.htmlComponent.querySelectorAll('.tooltip-icon'));
+    this.tooltipList = Array.from(this.htmlComponent.querySelectorAll('.tooltip'));
     this.animatedContent.addEventListener('animationend', () => {
       this.showPopup();
     });
@@ -87,7 +87,7 @@ class SlideStudentView {
   }
 
   render() {
-    return this.#htmlComponent;
+    return this.htmlComponent;
   }
 
   createElement() {

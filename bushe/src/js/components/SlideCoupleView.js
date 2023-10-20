@@ -1,18 +1,18 @@
 import imageSourcesList from '../constants/imageSourcesList';
 
 class SlideCoupleView {
-  #htmlComponent = document.createDocumentFragment();
+  htmlComponent = document.createDocumentFragment();
 
   constructor(viewWidth) {
     this.id = 'couple';
-    this.#htmlComponent.append(this.createElement());
+    this.htmlComponent.append(this.createElement());
     this.viewWidth = viewWidth;
-    this.renderedSlide = this.#htmlComponent.querySelector(`.${this.id}`);
-    this.animatedContent = this.#htmlComponent.querySelector('.slide__content');
-    this.popupList = Array.from(this.#htmlComponent.querySelectorAll('.text-popup'));
-    this.tooltipIconsList = Array.from(this.#htmlComponent.querySelectorAll('.tooltip-icon'));
-    this.tooltipCloseIconsList = Array.from(this.#htmlComponent.querySelectorAll('.tooltip__close-icon'));
-    this.tooltipList = Array.from(this.#htmlComponent.querySelectorAll('.tooltip'));
+    this.renderedSlide = this.htmlComponent.querySelector(`.${this.id}`);
+    this.animatedContent = this.htmlComponent.querySelector('.slide__content');
+    this.popupList = Array.from(this.htmlComponent.querySelectorAll('.text-popup'));
+    this.tooltipIconsList = Array.from(this.htmlComponent.querySelectorAll('.tooltip-icon'));
+    this.tooltipCloseIconsList = Array.from(this.htmlComponent.querySelectorAll('.tooltip__close-icon'));
+    this.tooltipList = Array.from(this.htmlComponent.querySelectorAll('.tooltip'));
     this.animatedContent.addEventListener('animationend', () => {
       this.showPopup();
       setTimeout(() => {
@@ -94,7 +94,7 @@ class SlideCoupleView {
   }
 
   render() {
-    return this.#htmlComponent;
+    return this.htmlComponent;
   }
 
   createElement() {

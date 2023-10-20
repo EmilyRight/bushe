@@ -1,20 +1,18 @@
 import MOBILE from '../constants/dimensions';
 import imageSourcesList from '../constants/imageSourcesList';
-import { html } from '../helpers/utils';
-
 
 class SlideManView {
-  #htmlComponent = document.createDocumentFragment();
+  htmlComponent = document.createDocumentFragment();
 
   constructor(viewWidth) {
     this.id = 'man';
-    this.#htmlComponent.append(this.createElement());
+    this.htmlComponent.append(this.createElement());
     this.viewWidth = viewWidth;
-    this.renderedSlide = this.#htmlComponent.querySelector(`.${this.id}`);
-    this.animatedContent = this.#htmlComponent.querySelector('.slide__content');
-    this.popupList = Array.from(this.#htmlComponent.querySelectorAll('.text-popup'));
-    this.tooltipIconsList = Array.from(this.#htmlComponent.querySelectorAll('.tooltip-icon'));
-    this.tooltipList = Array.from(this.#htmlComponent.querySelectorAll('.tooltip'));
+    this.renderedSlide = this.htmlComponent.querySelector(`.${this.id}`);
+    this.animatedContent = this.htmlComponent.querySelector('.slide__content');
+    this.popupList = Array.from(this.htmlComponent.querySelectorAll('.text-popup'));
+    this.tooltipIconsList = Array.from(this.htmlComponent.querySelectorAll('.tooltip-icon'));
+    this.tooltipList = Array.from(this.htmlComponent.querySelectorAll('.tooltip'));
     this.animatedContent.addEventListener('animationend', () => {
       this.showPopup();
       setTimeout(() => {
@@ -104,7 +102,7 @@ class SlideManView {
   }
 
   render() {
-    return this.#htmlComponent;
+    return this.htmlComponent;
   }
 
   createElement() {

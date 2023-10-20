@@ -127,11 +127,11 @@ body {
     font-size: 10px;
   }
 }
-// @media (max-width: 440px) {
-//   html {
-//     font-size: 10px;
-//   }
-// }
+@media (max-width: 374px) {
+  html {
+    font-size: 7px;
+  }
+}
 //@include mq($until: tablet){}
 
 // Margins

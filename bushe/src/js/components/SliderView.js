@@ -10,24 +10,6 @@ class SliderView {
     this.activeSlide = null;
   }
 
-  // setActiveSlide(id) {
-  //   [this.activeSlide] = this.slides.filter((slide) => slide.id === id);
-  //   this.activeSlide.addEventListeners();
-  // }
-
-  // setElementsForSlides({
-  //   animatedContent, popupList, tooltipIconsList, tooltipList, renderedSlide,
-  // }) {
-  //   this.slides.forEach((slide) => {
-  //     slide.setElements(animatedContent, popupList, tooltipIconsList, tooltipList, renderedSlide);
-  //   });
-  // }
-
-  // removeEventListeners(id) {
-  //   const inactiveSlide = this.slides.filter((slide) => slide.id === id);
-  //   inactiveSlide[0]?.removeEventListeners();
-  // }
-
   render() {
     const loader = this.loader.render();
     return html`
@@ -90,8 +72,3 @@ class SliderView {
 }
 
 export default SliderView;
-// ${this.slides.map((slide) => html`
-//   <div class="swiper-slide slide slide_hidden ${slide.id} " id=${slide.id}>
-//     ${slide.render()}
-//   </div>
-// `)}

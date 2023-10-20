@@ -1,9 +1,7 @@
 import detectDevice from './helpers/detectDevice';
 import { WOW } from './vendor/wow.min';
-import { generateId, getCurrentYear } from './helpers/utils';
 import videoTeaser from './helpers/videoTeaser';
 import Page from './components/Page';
-import { addAnimationClass, createSlider, handleAnimation } from './helpers/sliderFunctions';
 import GTMEvents from './helpers/gtmEvents';
 
 /// /////// DocReady //////////
@@ -11,7 +9,7 @@ const GTM = new GTMEvents();
 document.addEventListener('DOMContentLoaded', () => {
   detectDevice();
   videoTeaser();
-  setPageheight();
+  setPageHeight();
   const page = document.querySelector('.page');
   const pageView = new Page(page, GTM);
   const buttonMore = document.querySelector('.teaser-more');
@@ -44,12 +42,12 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 window.addEventListener('resize', () => {
-  setPageheight();
+  setPageHeight();
 });
 window.addEventListener('orientationchange', () => {
-  setPageheight();
+  setPageHeight();
 });
-function setPageheight() {
+function setPageHeight() {
   const elements = document.querySelectorAll('.js-set-size');
   elements.forEach((el) => {
     el.style.setProperty('--vh', `${window.innerHeight / 100}px`);

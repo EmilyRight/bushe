@@ -2,19 +2,19 @@ import MOBILE from '../constants/dimensions';
 import imageSourcesList from '../constants/imageSourcesList';
 
 class ModalView {
-  #htmlComponent = document.createDocumentFragment();
+  htmlComponent = document.createDocumentFragment();
 
   constructor(viewWidth) {
     this.id = 'modal';
     this.viewWidth = viewWidth;
-    this.#htmlComponent.append(this.createElement());
-    this.renderedSlide = this.#htmlComponent.querySelector(`.${this.id}`);
-    this.closeIcon = this.#htmlComponent.querySelector('.close-icon');
-    this.copyIcon = this.#htmlComponent.querySelector('.copy-icon');
-    this.copyTooltip = this.#htmlComponent.querySelector('.copy-tooltip');
-    this.okIcon = this.#htmlComponent.querySelector('.share__icon_ok');
-    this.vkIcon = this.#htmlComponent.querySelector('.share__icon_vk');
-    this.glassPic = this.#htmlComponent.querySelector('.footer-glass');
+    this.htmlComponent.append(this.createElement());
+    this.renderedSlide = this.htmlComponent.querySelector(`.${this.id}`);
+    this.closeIcon = this.htmlComponent.querySelector('.close-icon');
+    this.copyIcon = this.htmlComponent.querySelector('.copy-icon');
+    this.copyTooltip = this.htmlComponent.querySelector('.copy-tooltip');
+    this.okIcon = this.htmlComponent.querySelector('.share__icon_ok');
+    this.vkIcon = this.htmlComponent.querySelector('.share__icon_vk');
+    this.glassPic = this.htmlComponent.querySelector('.footer-glass');
     this.closeIcon?.addEventListener('click', () => {
       this.closeModal();
     });
@@ -73,7 +73,7 @@ class ModalView {
   }
 
   render() {
-    return this.#htmlComponent;
+    return this.htmlComponent;
   }
 
   getCurrentYear() {

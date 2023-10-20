@@ -1,4 +1,3 @@
-
 class SlideItemView {
   constructor() {
     this.tooltipIconsList = null;
@@ -57,7 +56,6 @@ class SlideItemView {
       this.popupAnimation = this.createAnimation(popup);
       if (this.renderedSlide.classList.contains('swiper-slide-active')) {
         popup.classList.add('opened');
-        // this.popupAnimation.ready.then(() => this.popupAnimation.play());
       } else {
         popup.classList.remove('opened');
       }

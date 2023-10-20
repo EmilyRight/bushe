@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 const imageSourcesList = {
   loaderSrc: require('../../img/page/loader-coffee.svg'),
   loaderSteamSrc: require('../../img/page/loader-steam.svg'),
