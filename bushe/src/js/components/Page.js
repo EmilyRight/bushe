@@ -1,11 +1,11 @@
-import SliderView from './SliderView';
+import MOBILE from '../constants/dimensions';
 import Swiper from '../vendor/swiper.min';
 import options from '../constants/swiperOptions';
+import SliderView from './SliderView';
 import SlideCoupleView from './SlideCoupleView';
 import SlideManView from './SlideManView';
 import SlideStudentView from './SlideStudentView';
 import ModalView from './ModalView';
-import MOBILE from '../constants/dimensions';
 
 class Page {
   constructor(element, GTM) {

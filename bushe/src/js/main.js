@@ -23,22 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   GTM.addEventListeners();
   new WOW().init();
-  // getCurrentYear();
-  // const loader = document.querySelector('.loader');
-  // const controls = document.querySelector('.swiper-controls');
-  // const hiddenList = document.querySelectorAll('.hidden');
-  // const teaser = document.querySelector('.teaser');
-  // loader.addEventListener('animationend', () => {
-  //   teaser.remove();
-  //   hiddenList.forEach((element) => {
-  //     element.classList.remove('hidden');
-  //     element.classList.add('visible');
-
-  //     controls.classList.add('displayed');
-  //   });
-  //   addAnimationClass();
-  //   handleAnimation();
-  // });
 });
 
 window.addEventListener('resize', () => {
@@ -47,6 +31,7 @@ window.addEventListener('resize', () => {
 window.addEventListener('orientationchange', () => {
   setPageHeight();
 });
+
 function setPageHeight() {
   const elements = document.querySelectorAll('.js-set-size');
   elements.forEach((el) => {
