@@ -108,19 +108,23 @@ class Page {
     setTimeout(() => {
       this.controls.classList.add('displayed');
     }, 3000);
+    this.swiper.on('slideNextTransitionStart', () => {
+      if (this.activeSlide.id === 'girl') {
+        this.notify('modal');
+        fixedText.classList.remove('visible');
+        fixedText.classList.add('hidden');
+      }
+    });
     this.swiper.on('slideNextTransitionEnd', () => {
       this.notify('isPrevios');
       this.handleActiveSlide();
       this.animateActiveSlide();
       this.setDataEventsOnControls();
-
-      this.GTM.handleScreen(this.activeSlide.id);
-      if (this.activeSlide.id === 'modal') {
-        fixedText.style.display = 'none';
-        this.notify('modal');
-      } else {
-        fixedText.style.display = 'block';
+      if (this.activeSlide.id === 'girl') {
+        fixedText.classList.remove('hidden');
+        fixedText.classList.add('visible');
       }
+      this.GTM.handleScreen(this.activeSlide.id);
     });
 
     this.swiper.on('slideChangeTransitionEnd', () => {

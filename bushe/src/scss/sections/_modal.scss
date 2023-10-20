@@ -253,6 +253,7 @@
 
         &__footer {
           display: flex;
+          flex-direction: row;
           background-color: #edf0f2;
         }
       }
