@@ -13,11 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const page = document.querySelector('.page');
   const pageView = new Page(page, GTM);
   const buttonMore = document.querySelector('.teaser-more');
-  console.log('====================================');
-  console.log(pageView, buttonMore, page);
-  console.log('====================================');
   buttonMore.addEventListener('click', () => {
-    console.log('hey click');
     GTM.handleScreen('teaser');
     pageView.init();
   });
