@@ -1,99 +1,11 @@
 import imageSourcesList from '../constants/imageSourcesList';
+import SlideView from './SlideView';
 
-class SlideCoupleView {
-  constructor(viewWidth) {
-    this.htmlComponent = document.createDocumentFragment();
-    this.id = 'couple';
-    this.htmlComponent.append(this.createElement());
+class SlideCoupleView extends SlideView {
+  constructor(viewWidth, id = 'couple') {
+    super(viewWidth, 'couple');
     this.viewWidth = viewWidth;
-    this.renderedSlide = this.htmlComponent.querySelector(`.${this.id}`);
-    this.animatedContent = this.htmlComponent.querySelector('.slide__content');
-    this.popupList = Array.from(this.htmlComponent.querySelectorAll('.text-popup'));
-    this.tooltipIconsList = Array.from(this.htmlComponent.querySelectorAll('.tooltip-icon'));
-    this.tooltipCloseIconsList = Array.from(this.htmlComponent.querySelectorAll('.tooltip__close-icon'));
-    this.tooltipList = Array.from(this.htmlComponent.querySelectorAll('.tooltip'));
-    this.animatedContent.addEventListener('animationend', () => {
-      this.showPopup();
-      setTimeout(() => {
-        this.notify('popUpCoupleiShown');
-      }, 1000);
-    });
-    this.tooltipIconsList.forEach((icon) => {
-      icon.addEventListener('click', () => this.showTooltip(icon));
-    });
-    // this.tooltipCloseIconsList.forEach((icon) => {
-    //   icon.addEventListener('click', () => this.hideTooltip(icon));
-    // });
-    document.addEventListener('isPrevios', () => {
-      this.hidePopup();
-    });
-  }
-
-  showTooltip(icon) {
-    this.tooltipList.forEach((tooltip) => {
-      if (tooltip.id === icon.dataset.tooltip) {
-        if (!tooltip.classList.contains('opened')) {
-          tooltip.classList.add('opened');
-        } else {
-          tooltip.classList.remove('opened');
-        }
-      }
-    });
-  }
-
-  createAnimation(element, delay) {
-    const animation = new KeyframeEffect(
-      element,
-      [
-        { opacity: 0, offset: 0 },
-
-        { opacity: 1, offset: 1 },
-      ],
-      {
-        duration: 1500,
-        fill: 'forwards',
-        easing: 'linear',
-        delay,
-        iterations: 1,
-        direction: 'normal',
-      }, // keyframe options
-    );
-    return new Animation(animation, document.timeline);
-  }
-
-  showPopup() {
-    this.popupList.forEach((popup, index) => {
-      this.popupAnimation = this.createAnimation(popup, index);
-      popup.classList.add('opened');
-      this.popupAnimation.ready.then(() => {
-        this.popupAnimation.play();
-      });
-    });
-  }
-
-  hidePopup() {
-    this.popupList.forEach((popup) => {
-      if (this.popupAnimation) {
-        this.popupAnimation.cancel();
-        popup.classList.remove('opened');
-      }
-    });
-  }
-
-  /**
- * @param {string} type
- * @param {any} [detail]
- * @return {boolean}
- */
-  notify(type, detail = null) {
-    const cancelable = true;
-    const bubbles = true;
-    const event = new CustomEvent(type, { detail, cancelable, bubbles });
-    return document.dispatchEvent(event);
-  }
-
-  render() {
-    return this.htmlComponent;
+    this.id = id;
   }
 
   createElement() {
