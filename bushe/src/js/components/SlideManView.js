@@ -9,7 +9,7 @@ class SlideManView extends SlideView {
     this.id = id;
 
     document.addEventListener('couplePopUpiShown', () => {
-      if (this.viewWidth > MOBILE) {
+      if (this.viewWidth >= MOBILE) {
         this.animateSelf();
       }
     });

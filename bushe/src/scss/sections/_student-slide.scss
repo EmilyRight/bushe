@@ -10,8 +10,7 @@
       width: 70%;
       max-width: 29rem;
       height: 70%;
-      bottom: -12%;
-      left: 0rem;
+
     }
     &__img-box {
       position: relative;
@@ -22,6 +21,8 @@
     }
 
     .images {
+      bottom: -12%;
+      left: 0rem;
       .image-box {
         height: 100%;
         width: 100%;
@@ -97,8 +98,8 @@
   }
 
   .text-popup {
-    font-size: 1.5vh;
-    top: -13vh;
+    font-size: 1.2rem;
+    top: -5vh;
     left: -5%;
     width: 70vw;
     max-width: 27.3rem;
@@ -126,6 +127,7 @@
       }
 
       .images {
+        bottom: -10rem;
         .image-box {
           height: auto;
           width: 100%;
@@ -146,7 +148,7 @@
 
     .tooltip-block {
       &.girl-tooltip {
-        bottom: 83%;
+        bottom: 63%;
         left: 11%;
         .tooltip {
           left: -9rem;
@@ -155,11 +157,11 @@
     }
 
     .text-popup {
-      top: -23vh;
+      top: -8vh;
       left: auto;
-      right: -70%;
+      right: -60%;
       max-width: 20rem;
-      font-size: 1.2rem;
+
       &::after {
         width: 2rem;
         height: 3rem;

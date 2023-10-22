@@ -10,8 +10,6 @@
       width: 83%;
       width: calc(var(--vh, 1vh) * 60);
       height: 65%;
-      bottom: -2rem;
-      left: 1rem;
     }
     &__img-box {
       position: relative;
@@ -19,6 +17,8 @@
       height: 100%;
       display: flex;
       justify-content: center;
+      bottom: -2rem;
+      left: 1rem;
     }
 
     &__couple {
@@ -47,7 +47,6 @@
         height: 100%;
         position: absolute;
         z-index: 10;
-
       }
       &__coffee-img {
         animation: jumping 1s linear 0s infinite normal forwards;
@@ -99,17 +98,19 @@
       cursor: pointer;
     }
     &.man-tooltip {
-      bottom: 31%;
-      left: 45%;
+      bottom: 26%;
+      left: 46%;
       transform: translateX(-1%);
+
       .tooltip {
         left: -9rem;
       }
     }
 
     &.woman-tooltip {
-      bottom: 50%;
-      left: 37%;
+
+      bottom: 47%;
+      left: 41%;
       .tooltip {
         left: -9rem;
       }
@@ -117,7 +118,6 @@
   }
 
   .man-popup {
-    font-size: 1.5vh;
     top: -21%;
     left: 5%;
     width: 50vw;
@@ -150,8 +150,7 @@
         width: 100%;
         max-width: 31.8rem;
         height: 45vw;
-        max-height: 44rem;
-        bottom: -5rem;
+        max-height: 40rem;
       }
       &__img-box {
         max-width: 100%;
@@ -193,7 +192,7 @@
     }
 
     .man-popup {
-      top: -15vh;
+      top: -30%;
       left: 10%;
       max-width: 20rem;
       font-size: 1.2rem;
@@ -203,8 +202,8 @@
     }
 
     .woman-popup {
-      top: 0;
-      right: 0%;
+      top: 15%;
+      right: -10%;
       max-width: 10rem;
       font-size: 1.2rem;
       &::after {
