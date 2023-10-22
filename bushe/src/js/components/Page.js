@@ -116,12 +116,14 @@ class Page {
     this.swiper.on('slideNextTransitionEnd', () => {
       this.notify('isPrevios');
       this.handleActiveSlide();
-      this.animateActiveSlide();
-      this.setDataEventsOnControls();
       if (this.activeSlide.id === 'girl') {
         fixedText.classList.remove('hidden');
         fixedText.classList.add('visible');
       }
+
+      this.animateActiveSlide();
+      this.setDataEventsOnControls();
+
       this.GTM.handleScreen(this.activeSlide.id);
     });
 
