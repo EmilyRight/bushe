@@ -90,9 +90,15 @@ body {
 //@import "plugins/animate";
 
 /////// MQ /////
+///
+@media (min-width: 1001px) {
+  html {
+    font-size: 7px;
+  }
+}
 @media (min-width: 1280px) {
   html {
-    font-size: 9px;
+    font-size: 8px;
   }
 }
 
@@ -120,7 +126,7 @@ body {
 //
 @media (max-width: 1000px) {
   html {
-    font-size: 8px;
+    font-size: 5.8px;
   }
 }
 @media (max-width: 767px) {
@@ -133,6 +139,7 @@ body {
     font-size: 10px;
   }
 }
+
 // @media (max-width: 374px) {
 //   html {
 //     font-size: 7px;
