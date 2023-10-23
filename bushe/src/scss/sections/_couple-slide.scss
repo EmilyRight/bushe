@@ -7,7 +7,7 @@
     width: 100%;
     &__wrapper {
       position: relative;
-      width: 83%;
+      // width: 83%;
       width: calc(var(--vh, 1vh) * 60);
       height: 65%;
 
@@ -227,11 +227,11 @@
         max-width: 31.8rem;
         height: 45vw;
         max-height: 40rem;
-        border: 1px solid rgb(17, 0, 255);
+
       }
       &__img-box {
         max-width: 100%;
-        border: 1px solid rgb(255, 230, 0);
+
       }
 
       .images {
