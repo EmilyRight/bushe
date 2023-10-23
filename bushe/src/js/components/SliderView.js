@@ -27,7 +27,7 @@ class SliderView {
             <p class="fixed-text__text">
               Провести время с&nbsp;близкими<br />
               за&nbsp;чашкой кофе&nbsp;&mdash; бесценно. Меняем минуты
-              Tele2&nbsp;на кофе в&nbsp;буше
+              Tele2&nbsp;на&nbsp;кофе в&nbsp;буше
               до&nbsp;3&nbsp;декабря&nbsp;2023&nbsp;г.
             </p>
             <div

@@ -93,9 +93,6 @@ class SlideView {
     const cancelable = true;
     const bubbles = true;
     const event = new CustomEvent(type, { detail, cancelable, bubbles });
-    console.log('====================================');
-    console.log(type);
-    console.log('====================================');
     return document.dispatchEvent(event);
   }
 
