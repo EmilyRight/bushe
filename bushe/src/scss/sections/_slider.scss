@@ -80,7 +80,9 @@
     &__background {
       position: absolute;
       height: 100%;
-      background-image: url("../img/page/bgmain.png");
+      // background-image: url("../img/page/bgmain.png");
+      background-image: url("../img/page/bgmain-mobile.png");
+
       background-size: 100%;
       background-repeat: no-repeat;
       background-position: 0 100%;
@@ -209,8 +211,9 @@
       width: 100%;
       box-sizing: border-box;
       &__background {
+        background-image: url("../img/page/bgmain-desk.png");
         background-size: 100%;
-        background-position: 0 45%;
+        background-position: center bottom;
         left: 0;
         width: 100%;
       }
