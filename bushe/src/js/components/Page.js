@@ -48,9 +48,9 @@ class Page {
     this.modalIcon.addEventListener('click', () => {
       this.openModal();
     });
-    window.addEventListener('resize', () => {
-      this.showMainScreen();
-    });
+    // window.addEventListener('resize', () => {
+    //   this.showMainScreen();
+    // });
   }
 
   showMainScreen() {

@@ -45,22 +45,7 @@ class SlideCoupleView extends SlideView {
               class="images__hands hand-image"
             />
           </div>
-        </div>
-        <div class="slide-content__popup man-popup text-popup">
-          Гуляли по&nbsp;Питеру, любовались осенним городом, взяли
-          с&nbsp;собой
-          <a
-            href="https://spb.tele2.ru/minutes-management/bushe"
-            class="js-gtm-event link text-popup__link"
-            target="_blank"
-            data-event="conv_bushe"
-            >кофе буше за&nbsp;минуты Tele2</a
-          >
-        </div>
-        <div class="slide-content__popup woman-popup text-popup">
-          Мне с&nbsp;тобой так&nbsp;тепло
-        </div>
-        <div class="slide-content__tooltip-block tooltip-block man-tooltip">
+          <div class="slide-content__tooltip-block tooltip-block man-tooltip">
           <div
             class="js-gtm-event tooltip-block__tooltip-icon tooltip-icon"
             data-tooltip="pair-man"
@@ -105,6 +90,23 @@ class SlideCoupleView extends SlideView {
             </div>
           </div>
         </div>
+        </div>
+        <div class="slide-content__popup man-popup text-popup">
+          Гуляли по&nbsp;Питеру, любовались осенним городом, взяли
+          с&nbsp;собой
+          <a
+            href="https://spb.tele2.ru/minutes-management/bushe"
+            class="js-gtm-event link text-popup__link"
+            target="_blank"
+            data-event="conv_bushe"
+            >кофе буше за&nbsp;минуты Tele2</a
+          >
+        </div>
+        <div class="slide-content__popup woman-popup text-popup">
+          Мне с&nbsp;тобой так&nbsp;тепло
+        </div>
+
+
       </div>
     </div>
 

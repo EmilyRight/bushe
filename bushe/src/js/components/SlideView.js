@@ -1,4 +1,8 @@
 class SlideView {
+  /**
+ * @param {number} viewWidth
+ * @param {string} id
+ */
   constructor(viewWidth, id) {
     this.htmlComponent = document.createDocumentFragment();
     this.id = id;
@@ -33,6 +37,9 @@ class SlideView {
     this.animatedContent?.classList.add('animated');
   }
 
+  /**
+   * @param {HTMLElement} icon
+   */
   showTooltip(icon) {
     this.tooltipList.forEach((tooltip) => {
       if (tooltip.id === icon.dataset.tooltip) {
@@ -45,6 +52,10 @@ class SlideView {
     });
   }
 
+  /**
+   * @param {HTMLElement} element
+   * @param {number} delay
+   */
   createAnimation(element, delay) {
     const animation = new KeyframeEffect(
       element,

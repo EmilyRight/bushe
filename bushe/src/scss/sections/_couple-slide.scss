@@ -10,6 +10,7 @@
       width: 83%;
       width: calc(var(--vh, 1vh) * 60);
       height: 65%;
+
     }
     &__img-box {
       position: relative;
@@ -81,10 +82,9 @@
 
     &__tooltip-block {
       position: absolute;
-      --size: 13%;
-      aspect-ratio: 0.8;
-      width: calc(var(--size) / var(--aspect-ratio));
-      height: var(--size);
+      width: 17%;
+      max-width: 10rem;
+      height: 16%;
       z-index: 12;
       user-select: none;
     }
@@ -98,8 +98,8 @@
       cursor: pointer;
     }
     &.man-tooltip {
-      bottom: 26%;
-      left: 46%;
+      bottom: 28%;
+      left: 43%;
       transform: translateX(-1%);
 
       .tooltip {
@@ -108,9 +108,8 @@
     }
 
     &.woman-tooltip {
-
-      bottom: 47%;
-      left: 41%;
+      bottom: 48%;
+      left: 38%;
       .tooltip {
         left: -9rem;
       }
@@ -143,7 +142,84 @@
   .tooltip__text {
     pointer-events: none;
   }
+
   @media (min-width: 768px) {
+    .slide-content {
+      &__wrapper {
+        position: relative;
+        width: 100%;
+        max-width: 39.8rem;
+        // height: 45vw;
+        height: 52.1rem;
+      }
+      &__img-box {
+        max-width: 100%;
+        // align-items: flex-start;
+      }
+
+      .images {
+        .image-box {
+          height: auto;
+          width: 100%;
+          img {
+            height: auto;
+            max-height: 100%;
+            width: 100%;
+          }
+        }
+      }
+
+      &__tooltip-block {
+        --size: 18%;
+      }
+    }
+
+    .tooltip-block {
+      &.man-tooltip {
+        bottom: 28%;
+        left: 42%;
+        transform: translateX(-1%);
+        .tooltip {
+          left: -9rem;
+        }
+      }
+
+      &.woman-tooltip {
+        width: 17%;
+        max-width: 10rem;
+        height: 16%;
+        .tooltip {
+          left: -9rem;
+        }
+      }
+    }
+
+    .man-popup {
+      top: -10vh;
+      left: 15%;
+      max-width: 25rem;
+
+      &::after {
+        left: 53%;
+      }
+    }
+
+    .woman-popup {
+      top: 10%;
+      right: -10%;
+      max-width: 13rem;
+
+      &::after {
+        width: 2rem;
+        height: 3rem;
+        bottom: -0.7rem;
+        left: -0.3rem;
+        clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+      }
+    }
+  }
+
+  @media (min-width: 1440px) {
     .slide-content {
       &__wrapper {
         position: relative;
@@ -151,9 +227,11 @@
         max-width: 31.8rem;
         height: 45vw;
         max-height: 40rem;
+        border: 1px solid rgb(17, 0, 255);
       }
       &__img-box {
         max-width: 100%;
+        border: 1px solid rgb(255, 230, 0);
       }
 
       .images {

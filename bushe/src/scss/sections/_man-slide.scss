@@ -132,6 +132,64 @@
       &__wrapper {
         position: relative;
         width: 100%;
+        max-width: 38.2rem;
+        height: 45vw;
+        max-height: 44rem;
+      }
+      &__img-box {
+        max-width: 100%;
+      }
+
+      .images {
+        bottom: -55%;
+        .image-box {
+          height: auto;
+          width: 100%;
+          img {
+            height: auto;
+            width: 100%;
+          }
+        }
+        .image-box_absolute {
+          bottom: 0px;
+        }
+      }
+
+      &__tooltip-block {
+        --size: 18%;
+      }
+    }
+
+    .tooltip-block {
+      &.man-tooltip {
+        bottom: 55%;
+        left: 44%;
+        transform: translateX(-1%);
+        .tooltip {
+          left: -9rem;
+        }
+      }
+    }
+
+    .text-popup {
+      top: -23vh;
+      left: auto;
+      right: -35%;
+      max-width: 26rem;
+      &::after {
+        width: 2rem;
+        height: 3rem;
+        bottom: -0.7rem;
+        left: -0.3rem;
+        clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+      }
+    }
+  }
+  @media (min-width: 1440px) {
+    .slide-content {
+      &__wrapper {
+        position: relative;
+        width: 100%;
         max-width: 32.2rem;
         height: 45vw;
         max-height: 44rem;
