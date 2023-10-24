@@ -20,6 +20,12 @@ class SliderView {
         <div class="swiper-wrapper__background"> </div>
         <div class="swiper-wrapper hidden">
         <div class="swiper-wrapper__background"> </div>
+        <div
+          class="swiper-wrapper__modal-icon modal-icon js-gtm-event animated"
+          data-event="glass"
+          >
+          <img src=${imageSourcesList.modalIconSrc} alt="" />
+        </div>
           <div class="slider__text fixed-text fixed-text_desktop hidden">
             <h3 class="fixed-text__title">
               1&nbsp;чашка&nbsp;&mdash; 250 минут
@@ -30,12 +36,7 @@ class SliderView {
               Tele2&nbsp;на&nbsp;кофе в&nbsp;буше
               до&nbsp;3&nbsp;декабря&nbsp;2023&nbsp;г.
             </p>
-            <div
-              class="fixed-text__modal-icon modal-icon js-gtm-event animated"
-              data-event="glass"
-              >
-                <img src=${imageSourcesList.modalIconSrc} alt="" />
-            </div>
+
           </div>
         </div>
         <div class="slider__text fixed-text fixed-text_mobile hidden">
