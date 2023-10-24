@@ -117,7 +117,7 @@
         width: 100%;
         max-width: 27.2rem;
         height: 40vw;
-        max-height: 37rem;
+        max-height: 60rem;
         // bottom: -25rem;
       }
       &__img-box {
@@ -126,16 +126,19 @@
 
       .images {
         bottom: -10rem;
-        .image-box {
-          height: auto;
-          width: 100%;
-          img {
-            height: auto;
+        .images {
+          .image-box {
+            height: 100%;
             width: 100%;
+            img {
+              display: block;
+              height:auto;
+              width: 100%;
+            }
           }
         }
         .image-box_absolute {
-          bottom: -3px;
+          bottom: 0px;
         }
       }
 
@@ -155,7 +158,7 @@
     }
 
     .text-popup {
-      top: -20vh;
+      top: 0vh;
       left: auto;
       right: -70%;
       max-width: 25rem;
@@ -194,7 +197,7 @@
           }
         }
         .image-box_absolute {
-          bottom: -3px;
+          bottom: 0px;
         }
       }
 
