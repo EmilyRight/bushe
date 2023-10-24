@@ -117,7 +117,8 @@
         width: 100%;
         max-width: 27.2rem;
         height: 40vw;
-        max-height: 60rem;
+        max-height: 55rem;
+        // border: 1px solid red;
         // bottom: -25rem;
       }
       &__img-box {
@@ -149,7 +150,7 @@
 
     .tooltip-block {
       &.girl-tooltip {
-        bottom:85%;
+        bottom:52%;
         left: 11%;
         .tooltip {
           left: -9rem;
@@ -158,7 +159,7 @@
     }
 
     .text-popup {
-      top: 0vh;
+      top: 7vh;
       left: auto;
       right: -70%;
       max-width: 25rem;

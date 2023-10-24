@@ -68,8 +68,8 @@ class SlideManView extends SlideView {
               data-event="conv_present"
               >Подарил кофе</a
             >
-            гостю в очереди. Это просто: надо всего-то показать QR-код
-            бариста. Сейчас еще маме код на кофе в мессенджере
+            гостю в&nbsp;очереди. Это просто: надо всего-то показать QR-код
+            бариста. Сейчас еще маме код на&nbsp;кофе в&nbsp;мессенджере
             перешлю. Здорово, когда можно спонтанно делиться теплом!
           </div>
           <div
@@ -85,7 +85,7 @@ class SlideManView extends SlideView {
             >
               <div class="tooltip__text">
                 <ul class="tooltip-list">
-                  <li class="tooltip-list__item">Подвешенный кофе</li>
+                  <li class="tooltip-list__item">Подвешенный&nbsp;кофе</li>
                 </ul>
               </div>
               <div class="tooltip__close-icon tooltip-icon" data-tooltip="smartphone">

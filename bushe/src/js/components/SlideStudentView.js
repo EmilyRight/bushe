@@ -76,7 +76,7 @@ class SlideStudentView extends SlideView {
             <div class="tooltip__text">
               <ul class="tooltip__list tooltip-list">
                 <li class="tooltip-list__item">
-                  Капучино на&nbsp;альтернативном молоке 220&nbsp;мл
+                  Капучино&nbsp;на&nbsp;альтернативном молоке&nbsp;220&nbsp;мл
                 </li>
               </ul>
             </div>

@@ -54,10 +54,10 @@ class SlideCoupleView extends SlideView {
             <div class="tooltip__text">
               <ul class="tooltip-list">
                 <li class="tooltip-list__item">
-                  Капучино классический 220&nbsp;мл
+                  Капучино&nbsp;классический&nbsp;220&nbsp;мл
                 </li>
                 <li class="tooltip-list__item">
-                  Американо 250&nbsp;мл
+                  Американо&nbsp;250&nbsp;мл
                 </li>
               </ul>
             </div>
@@ -78,10 +78,10 @@ class SlideCoupleView extends SlideView {
             <div class="tooltip__text">
               <ul class="tooltip-list">
                 <li class="tooltip-list__item">
-                  Капучино классический 220&nbsp;мл
+                  Капучино&nbsp;классический&nbsp;220&nbsp;мл
                 </li>
                 <li class="tooltip-list__item">
-                  Американо 250&nbsp;мл
+                  Американо&nbsp;250&nbsp;мл
                 </li>
               </ul>
             </div>
