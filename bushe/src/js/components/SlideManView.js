@@ -8,7 +8,7 @@ class SlideManView extends SlideView {
     this.viewWidth = viewWidth;
     this.id = id;
 
-    document.addEventListener('couplePopUpiShown', () => {
+    document.addEventListener('couplePopupIsShown', () => {
       if (this.viewWidth >= MOBILE) {
         this.animateSelf();
       }

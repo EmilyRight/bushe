@@ -9,7 +9,7 @@ class SlideStudentView extends SlideView {
     this.viewWidth = viewWidth;
     this.id = id;
 
-    document.addEventListener('manPopUpiShown', () => {
+    document.addEventListener('manPopupIsShown', () => {
       if (this.viewWidth >= MOBILE) {
         this.animateSelf();
       }

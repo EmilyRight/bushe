@@ -23,6 +23,9 @@ class Page {
     this.sliderNextButton = null;
     this.activeSlide = null;
     this.activeSlideContent = null;
+    document.addEventListener('girlPopupIsShown', () => {
+      this.modalIcon.classList.add('shown');
+    });
   }
 
   init() {

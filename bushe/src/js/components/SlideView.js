@@ -19,7 +19,7 @@ class SlideView {
     this.animatedContent.addEventListener('animationend', () => {
       this.showPopup();
       setTimeout(() => {
-        this.notify(`${this.id}PopUpiShown`);
+        this.notify(`${this.id}PopupIsShown`);
       }, 1000);
     });
     this.tooltipIconsList.forEach((icon) => {
