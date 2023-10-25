@@ -1,5 +1,6 @@
 import MOBILE from '../constants/dimensions';
 import imageSourcesList from '../constants/imageSourcesList';
+import linksList from '../constants/linksList';
 
 class ModalView {
   constructor(viewWidth) {
@@ -189,7 +190,7 @@ class ModalView {
               </div>
               <div class="footer__rules rules">
                 <a
-                  href="https://tele2.ru/minutes-management"
+                  href=${linksList.conditions}
                   target="_blank"
                   class="text-link js-gtm-event"
                   data-event="rules-link"
