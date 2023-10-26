@@ -179,7 +179,7 @@
       position: absolute;
       background-color: #fff;
       pointer-events: none;
-      bottom: -100%;
+      bottom: -4.5rem;
       padding: 1.2rem;
       text-align: center;
       font-family: $font1;
@@ -191,6 +191,7 @@
       line-height: 1.8rem;
       opacity: 0;
       transition: 0.4s;
+      max-width: none;
       &.opened {
         opacity: 1;
       }
@@ -370,7 +371,7 @@
         }
       }
       .copy-tooltip {
-        bottom: -150%;
+        bottom: -7rem;
       }
     }
   }

@@ -17,7 +17,7 @@ class SliderView {
     <div class="slider">
       ${loader}
       <div class="swiper-container">
-        <div class="swiper-wrapper__background"> </div>
+        <div class="swiper-wrapper__background swiper-wrapper__background_modal"> </div>
         <div class="swiper-wrapper hidden">
         <div class="swiper-wrapper__background"> </div>
         <div
@@ -31,10 +31,8 @@ class SliderView {
               1&nbsp;чашка&nbsp;&mdash; 250 минут
             </h3>
             <p class="fixed-text__text">
-              Провести время с&nbsp;близкими<br />
-              за&nbsp;чашкой кофе&nbsp;&mdash; бесценно. Меняем минуты
-              Tele2&nbsp;на&nbsp;кофе в&nbsp;буше
-              до&nbsp;3&nbsp;декабря&nbsp;2023&nbsp;г.
+            Провести время с&nbsp;близкими за&nbsp;чашкой кофе&nbsp;&mdash; бесценно.
+            <br/>Меняем минуты&nbsp;Tele2&nbsp;на кофе в&nbsp;буше
             </p>
 
           </div>
@@ -44,10 +42,8 @@ class SliderView {
             1&nbsp;чашка&nbsp;&mdash; 250 минут
           </h3>
           <p class="fixed-text__text">
-            Провести время с&nbsp;близкими<br />
-            за&nbsp;чашкой кофе&nbsp;&mdash; бесценно. Меняем минуты
-            Tele2&nbsp;на кофе в&nbsp;буше
-            до&nbsp;3&nbsp;декабря&nbsp;2023&nbsp;г.
+            Провести время с&nbsp;близкими за&nbsp;чашкой кофе&nbsp;&mdash; бесценно.
+            Меняем минуты&nbsp;Tele2&nbsp;на кофе в&nbsp;буше
           </p>
 
         </div>

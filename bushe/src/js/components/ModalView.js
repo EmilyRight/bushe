@@ -118,22 +118,23 @@ class ModalView {
                 С&nbsp;Tele2&nbsp;теплее.
               </p>
               <div class="modal-body__buttons buttons">
-                <a
-                  href="https://q.tele2.ru/tariffs"
-                  class="js-gtm-event btn btn-primary"
-                  data-event="conv_connect"
-                  target="_blank"
-                >
-                  Подключиться
-                </a>
-                <a
+              <a
                   href="https://spb.tele2.ru/minutes-management/bushe"
-                  class="js-gtm-event link"
+                  class="js-gtm-event btn btn-primary"
                   data-event="conv_change-final"
                   target="_blank"
                 >
                   К&nbsp;обмену
                 </a>
+                <a
+                  href="https://q.tele2.ru/tariffs"
+                  class="js-gtm-event link"
+                  data-event="conv_connect"
+                  target="_blank"
+                >
+                  Подключиться
+                </a>
+
               </div>
             </div>
           </div>

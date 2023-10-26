@@ -61,16 +61,17 @@ class SlideManView extends SlideView {
             </div>
           </div>
           <div class="slide-content__popup text-popup">
-            <a
-              href="https://spb.tele2.ru/minutes-management/bushe"
-              class="js-gtm-event link text-popup__link"
-              target="_blank"
-              data-event="conv_present"
-              >Подарил кофе</a
-            >
-            гостю в&nbsp;очереди. Это просто: надо всего-то показать QR-код
-            бариста. Сейчас еще маме код на&nbsp;кофе в&nbsp;мессенджере
-            перешлю. Здорово, когда можно спонтанно делиться теплом!
+          Подвесил кофе, и&nbsp;теперь другой гость сможет забрать его просто так.
+          Для этого
+          <a
+          href="https://spb.tele2.ru/minutes-management/bushe"
+          class="js-gtm-event link text-popup__link"
+          target="_blank"
+          data-event="conv_present"
+          >активировал промокод</a
+          >
+           в&nbsp;приложении &laquo;Мой&nbsp;Tele2&raquo;
+          и&nbsp;показал QR-код бариста. Делиться теплом&nbsp;&mdash; просто!
           </div>
           <div
             class="slide-content__tooltip-block tooltip-block man-tooltip"

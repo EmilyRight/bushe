@@ -56,7 +56,7 @@ class SlideStudentView extends SlideView {
         <div class="slide-content__popup text-popup">
           Ух&nbsp;ты,
           <a
-            href=${linksList.internet}
+            href=${linksList.exchange}
             class="js-gtm-event link text-popup__link"
             target="_blank"
             >до&nbsp;1500 минут</a

@@ -34,7 +34,7 @@ class GTMEvents {
 
   handleScreen(screenId) {
     this.fullEventData = {
-      eventLabel: `${screenId}`,
+      eventLabel: `${screenId}Screen`,
       hitsTime: Date.now(),
       requestId: generateId(7),
       firingOptions: 'onesPerEvent',
