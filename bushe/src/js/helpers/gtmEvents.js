@@ -17,7 +17,6 @@ class GTMEvents {
     const target = (event.target.classList.contains(className))
       ? event.target
       : event.target.closest(`.${className}`);
-
     if (target) {
       const eventBlock = target;
       const clickEventData = {
@@ -32,15 +31,20 @@ class GTMEvents {
     }
   }
 
-  handleScreen(screenId) {
+  /**
+   *
+   * @param {string} eventName
+   * @param {string} [eventAction]
+   */
+  handleDataLayerPush(eventName, eventAction) {
     this.fullEventData = {
-      eventLabel: `${screenId}Screen`,
+      eventLabel: `${eventName}`,
       hitsTime: Date.now(),
       requestId: generateId(7),
       firingOptions: 'onesPerEvent',
       event: 'event',
       eventStream: 'flight',
-      eventAction: null,
+      eventAction: `${eventAction}` || null,
       eventCategory: 'Interactions',
       eventContent: null,
       eventValue: null,
