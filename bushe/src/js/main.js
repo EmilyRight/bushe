@@ -6,19 +6,37 @@ import GTMEvents from './helpers/gtmEvents';
 
 /// /////// DocReady //////////
 const GTM = new GTMEvents();
+let page;
+let pageView;
 document.addEventListener('DOMContentLoaded', () => {
   detectDevice();
   videoTeaser();
   setPageHeight();
-  const page = document.querySelector('.page');
-  const pageView = new Page(page, GTM);
+  page = document.querySelector('.page');
+  pageView = new Page(page, GTM);
   const buttonMore = document.querySelector('.teaser-more');
   buttonMore.addEventListener('click', () => {
     GTM.handleScreen('teaser');
     pageView.init();
   });
+
   GTM.addEventListeners();
   new WOW().init();
+});
+
+document.addEventListener('mousewheel', () => {
+  const teaser = document.querySelector('.teaser');
+  if (teaser) {
+    GTM.handleScreen('teaser');
+    pageView.init();
+  }
+});
+document.addEventListener('touchmove', () => {
+  const teaser = document.querySelector('.teaser');
+  if (teaser) {
+    GTM.handleScreen('teaser');
+    pageView.init();
+  }
 });
 
 window.addEventListener('resize', () => {
