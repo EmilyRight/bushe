@@ -68,7 +68,7 @@ class Page {
     this.modalIcon = document.querySelector('.modal-icon');
     this.modal = document.querySelector('.modal');
     loader.addEventListener('animationend', () => {
-      this.GTM.handleScreen(loader.id);
+      this.GTM.handleDataLayerPush(loader.id);
       loader.remove();
       hiddenList.forEach((element) => {
         element.classList.remove('hidden');
@@ -78,7 +78,7 @@ class Page {
         this.renderForMobile();
       } else {
         this.modal.classList.add('modal-hidden');
-        this.GTM.handleScreen(this.slider.id);
+        this.GTM.handleDataLayerPush(this.slider.id);
         this.handleDesktopScreen();
       }
     });
@@ -105,7 +105,7 @@ class Page {
 
     this.animateActiveSlide();
     this.setDataEventsOnControls();
-    this.GTM.handleScreen(this.activeSlide.id);
+    this.GTM.handleDataLayerPush(this.activeSlide.id);
     setTimeout(() => {
       this.controls.classList.add('displayed');
     }, 3000);
@@ -127,7 +127,7 @@ class Page {
       this.animateActiveSlide();
       this.setDataEventsOnControls();
 
-      this.GTM.handleScreen(this.activeSlide.id);
+      this.GTM.handleDataLayerPush(this.activeSlide.id);
     });
 
     this.swiper.on('slideChangeTransitionEnd', () => {

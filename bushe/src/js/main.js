@@ -15,8 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
   page = document.querySelector('.page');
   pageView = new Page(page, GTM);
   const buttonMore = document.querySelector('.teaser-more');
+  GTM.handleDataLayerPush('teaser');
   buttonMore.addEventListener('click', () => {
-    GTM.handleScreen('teaser');
     pageView.init();
   });
 
@@ -27,14 +27,14 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('mousewheel', () => {
   const teaser = document.querySelector('.teaser');
   if (teaser) {
-    GTM.handleScreen('teaser');
+    GTM.handleDataLayerPush('more', 'mouseweel');
     pageView.init();
   }
 });
 document.addEventListener('touchmove', () => {
   const teaser = document.querySelector('.teaser');
   if (teaser) {
-    GTM.handleScreen('teaser');
+    GTM.handleDataLayerPush('more', 'touchmove');
     pageView.init();
   }
 });
