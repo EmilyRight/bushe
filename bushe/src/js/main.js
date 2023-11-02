@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   GTM.handleDataLayerPush('teaser');
   buttonMore.addEventListener('click', () => {
     pageView.init();
+    page.focus();
   });
 
   GTM.addEventListeners();
