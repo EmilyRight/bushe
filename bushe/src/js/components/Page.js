@@ -1,3 +1,4 @@
+import SwiperCore, { Keyboard, Mousewheel } from 'swiper';
 import MOBILE from '../constants/dimensions';
 import Swiper from '../vendor/swiper.min';
 import options from '../constants/swiperOptions';
@@ -7,6 +8,7 @@ import SlideManView from './SlideManView';
 import SlideStudentView from './SlideStudentView';
 import ModalView from './ModalView';
 
+SwiperCore.use([Keyboard, Mousewheel]);
 class Page {
   constructor(element, GTM) {
     this.slider = null;
